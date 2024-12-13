@@ -75,7 +75,7 @@ html{
     align-items: center;
     gap: 20px;
     position: relative;
-    background: url(../images/banner_bg.jpg);
+    background: url(../images/ayush.png);
 }
 
 .banner .overlay{
@@ -83,6 +83,7 @@ html{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    
 }
 
 .heading{
