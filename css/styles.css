@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+  
 }
 
 body{
@@ -8,6 +9,7 @@ body{
         font-family: "Roboto", sans-serif;
         font-weight: 400;
         font-style: normal;
+        width: 100%;
     
 }
 .nav{
@@ -365,8 +367,264 @@ textarea {
 /* .success-button {
     background-color: green;
     color: white;
+}*/
+
+
+/* General reset and mobile-first design */
+@media (max-width: 740px) {
+
+    /* Banner adjustments: ensure it is responsive and looks good on smaller screens */
+    .banner {
+        height: 60vh;
+        /* Reduces height for smaller screens */
+        background-size: cover;
+        background-position: center;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Overlay for the banner */
+    .banner .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Keep overlay for readability */
+    }
+
+    /* Heading size adjustment */
+    .heading {
+        font-size: 1.6rem;
+        /* Smaller font size on mobile */
+        text-align: center;
+        /* Center the text */
+    }
+
+    /* Adjust .sub_heading */
+    .sub_heading {
+        font-size: 1rem;
+        /* Smaller sub-heading for mobile */
+    }
+
+    /* Button size adjustment */
+    .button {
+        font-size: 1.5rem;
+        /* Reduce button size */
+        padding: 10px 15px;
+        /* Adjust padding */
+    }
+
+    .button:hover {
+        background-color: aqua;
+    }
+
+    /* Section header adjustments */
+    .section_header {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .heading_border {
+        width: 40%;
+        /* Make heading border smaller on mobile */
+    }
+
+    /* About Section: Adjust layout to stack on small screens */
+    .about .about_info {
+        flex-direction: column;
+        /* Stack content vertically */
+        width: 100%;
+        /* Ensure full-width layout */
+        padding: 10px;
+    }
+
+    .about .about_info .image {
+        width: 80vw;
+        /* Reduce image width */
+        margin: 10px 0;
+        /* Center image with margin */
+        border-radius: 10px;
+        height: auto;
+        /* Allow image to scale proportionally */
+    }
+
+    .about .about_info .information {
+        width: 90vw;
+        /* Use more width for content */
+        padding: 15px;
+        font-size: 16px;
+        /* Adjust font size */
+    }
+
+    /* Flex container adjustments for mobile */
+    .flex-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 15px;
+    }
+
+    /* Ensure all form inputs take full width */
+    .form_container input[type="text"],
+    .form_container input[type="password"],
+    .form_container textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .form_container textarea {
+        resize: vertical;
+        /* Allow vertical resizing for better UX */
+    }
+
+    /* Navbar adjustments */
+    .nav .links {
+        display: block;
+        /* Stack nav items vertically */
+        text-align: center;
+        width: 100%;
+        /* Full-width nav items */
+    }
+
+    .nav .links li {
+        margin: 10px 0;
+    }
+
+    .nav .links li a {
+        font-size: 1.2rem;
+        /* Slightly larger font for ease of navigation */
+        padding: 10px;
+    }
+
+    .nav .brand {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .nav .brand img {
+        width: 40px;
+        /* Smaller brand logo */
+        height: 40px;
+    }
+
+    .nav .brand span {
+        font-size: 1.2rem;
+        /* Reduce brand text size */
+        margin-top: 10px;
+    }
+
+    /* Footer adjustments for small screens */
+    footer {
+        font-size: 0.9rem;
+        padding: 10px 5px;
+        text-align: center;
+    }
+
+    /* Ensure the split layout becomes column on small screens */
+    .split-768 {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
 }
 
-.reset-button {
-    background: orange;
-} */
+/* Very small screen (mobile) adjustments */
+@media (max-width: 480px) {
+
+    /* Adjust text size */
+    .heading {
+        font-size: 1.5rem;
+    }
+
+    .sub_heading {
+        font-size: 0.8rem;
+        /* Reduce sub-heading text size */
+    }
+
+    /* Button adjustments */
+    .button {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+    }
+
+    /* Adjust form input padding and text size for small screens */
+    .form_container input[type="text"],
+    .form_container input[type="password"],
+    .form_container textarea {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    /* Navbar adjustments */
+    .nav .links li a {
+        font-size: 1.2rem;
+    }
+
+    .nav .brand {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Footer text size */
+    footer {
+        font-size: 0.8rem;
+        padding: 8px 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav .links {
+        display: none;
+        /* Hide the navigation links by default */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgb(251, 240, 240);
+        flex-direction: column;
+        gap: 0;
+        text-align: center;
+    }
+
+    .nav .links li a {
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav .menu-icon {
+        display: flex;
+        /* Show the hamburger menu icon */
+    }
+
+    .nav.active .links {
+        display: flex;
+        /* Display the links when the menu is active */
+    }
+}
+
+/* Adjustments for very small screens (500px or less) */
+@media (max-width: 500px) {
+    .nav .brand span {
+        font-size: 1.2rem;
+        /* Reduce the font size for small screens */
+    }
+
+    .nav .links li a {
+        font-size: 1rem;
+        /* Adjust font size for smaller screens */
+        padding: 12px;
+    }
+
+    .nav .menu-icon .bar {
+        width: 25px;
+        /* Smaller hamburger bars */
+        height: 3px;
+    }
+}
