@@ -9,25 +9,27 @@ body{
         font-family: "Roboto", sans-serif;
         font-weight: 400;
         font-style: normal;
-        width: 100%;
+
+        background-color: rgb(228, 220, 239);
     
 }
 .nav{
-    background-color: rgb(53, 45, 45);
+    background-color: rgb(4, 4, 4);
     color: azure;
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
     align-items: center;
     height: 50px;
-    border-bottom: 3px solid saddlebrown;
-    box-shadow: 0 8px 6px -6px brown;
+    
+    box-shadow: 0 8px 6px -6px blueviolet;
 }
 .nav .links{ 
     list-style: none;
     display: flex;
    align-items: center;
     height: 100%;
+    padding-top:25px;
     
 }
 .nav .links li a{
@@ -48,7 +50,7 @@ html{
 
 .nav .links li a:hover{
     /* background-color: rgb(72, 76, 77)  ; */
-    border-bottom: 2px solid saddlebrown;
+    border-bottom: 2px solid rgb(88, 14, 99);
 }
 
 .nav .brand img{
@@ -67,17 +69,21 @@ html{
     /* font-weight: bold; */
     text-transform: uppercase;
 }
-
-.banner{
-    height: 85vh;
-    background-color: bisque;
+.banner {
+    margin-top: 2px;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
     position: relative;
-    background: url(../images/ayush.png);
+    background: url(../images/banner2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Ensures the image covers the entire container */
+    background-position: center;
+    /* Centers the image */
 }
 
 .banner .overlay{
@@ -104,14 +110,16 @@ color: gray;
 .button{
     font-size: 2rem;
     padding: 10px 15px;
-    background-color: aquamarine;
+    background-color: rgb(203, 151, 225);
     border-radius: 10px;
     border: none;
     cursor: pointer;
+    color: black;
 }
 
 .button:hover{
-    background-color: aqua;
+    background-color: rgb(208, 104, 240);
+    color: black;
 }
 .section_header{
     display: flex;
@@ -125,7 +133,7 @@ color: gray;
 .heading_border{
     height: 2px;
      width: 20%;
-       background-color: aqua
+       background-color: rgb(208, 104, 240);
 } 
 
 .about .about_info{
@@ -137,7 +145,7 @@ color: gray;
 
 .about .about_info .information{
     width: 60vw;
-    background-color: blanchedalmond;
+    background-color: rgb(206, 180, 212);
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -145,13 +153,13 @@ color: gray;
     font-size: 23px;
 }
 .about .about_info .image  {
-    width: 30vw;
+    width: 25vw;
 }
 
 .about .about_info .image img{
     width: 100%;
     border-radius: 250%;
-    height: 90vh;
+    height: 75vh;
 }
 
 .flex-container{
@@ -181,6 +189,30 @@ ul li {
 .flex-direction-column{
     flex-direction: column;
 }
+#heading{
+    color: rgb(238, 237, 252);
+        font-size: 24px;
+        display: inline-block;
+}
+  @keyframes typing {
+      0% {
+          width: 0;
+      }
+
+      100% {
+          width: 100%;
+      }
+  }
+
+  @keyframes deleting {
+      0% {
+          width: 100%;
+      }
+
+      100% {
+          width: 0;
+      }
+  }
 
 @media (max-width: 740px) {
         .about_info {
@@ -195,7 +227,7 @@ ul li {
         }
                 .about .about_info .information {
                     width: 80vw;
-                    background-color: blanchedalmond;
+                    background-color: rgb(206, 180, 212);;
                     padding: 10px;
                     display: flex;
                     flex-direction: column;
@@ -312,15 +344,15 @@ textarea {
     border-radius: 20px;
     outline: none;
     border: none;
-    background-color: #e2e2e2;
+    background-color: #b998c0;
 }
 .form_container input[type="text"]:focus {
-    background-color: #2c2b2b;
+    background-color: #3a0343;
     color: white;
 }
 
 .form_container textarea:focus {
-    background-color: #2c2b2b;
+    background-color: #3a0343;
     color: white;
 }
 
@@ -382,7 +414,7 @@ textarea {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        
     }
 
     /* Overlay for the banner */
@@ -417,7 +449,7 @@ textarea {
     }
 
     .button:hover {
-        background-color: aqua;
+        background-color:rgb(208, 104, 240);
     }
 
     /* Section header adjustments */

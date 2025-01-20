@@ -37,6 +37,7 @@
           <img src="images/book.png" alt="Brand Logo of Ayush" />
           <span>Ayush Ahuja</span>
         </div>
+        <!-- Check this once -->
          <div class="menu-icon" id="menu-icon">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -58,10 +59,52 @@
     <section class="banner" id="banner">
       <div class="overlay "></div>
       
-      <h1 style="color: rgb(238, 237, 252)" class="heading">
-       Ayush Ahuja |  Fullstack Stack Developer | React + Spring Boot 
+      <h1 style="color: rgb(238, 237, 252)" class="heading" id="heading">
+       <!-- Ayush Ahuja |  Fullstack Stack Developer | React + Spring Boot  -->
         
       </h1>
+  <script>
+        const texts = [
+            "I am Ayush Ahuja . ",
+            "I am Java Developer .",
+            "I am React Developer .",
+            "I am working in Oracle ."
+        ];
+
+        let currentTextIndex = 0;
+        let currentCharIndex = 0;
+        let typingSpeed = 150;
+        let deletingSpeed = 100;
+        let delayBetweenText = 2000; // Delay before starting to delete
+        const headingElement = document.getElementById("heading");
+
+        function typeText() {
+            if (currentCharIndex < texts[currentTextIndex].length) {
+                headingElement.textContent += texts[currentTextIndex].charAt(currentCharIndex);
+                currentCharIndex++;
+                setTimeout(typeText, typingSpeed);
+            } else {
+                // Wait for the text to be fully typed before starting to delete
+                setTimeout(deleteText, delayBetweenText);
+            }
+        }
+
+        function deleteText() {
+            if (currentCharIndex > 0) {
+                headingElement.textContent = headingElement.textContent.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+                setTimeout(deleteText, deletingSpeed);
+            } else {
+                // Move to the next text after deleting
+                currentTextIndex = (currentTextIndex + 1) % texts.length;
+                setTimeout(typeText, typingSpeed);
+            }
+        }
+
+        typeText(); // Start typing the first text
+    </script>
+
+
       <p style="color: snow" class="sub_heading">
         I have good command on backend using spring boot and frontend using
         react. I have done several projects.
@@ -315,5 +358,6 @@
 
         </section>
     </div>
+    <script src="js/first.js"></script>
   </body>
 </html>
