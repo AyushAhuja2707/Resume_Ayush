@@ -1,363 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>Ayush Ahuja | Software Developer | Portfolio & Resume</title>
 
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <meta name="google-site-verification" content="google541cf6825541dbd5" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayush Ahuja | Software Developer | Portfolio & Resume</title>
 
-    <meta name="description" content="Explore Ayush Ahuja's professional resume, portfolio, and skills as a Full Stack Developer with expertise in React and Spring Boot.">
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="google-site-verification" content="google541cf6825541dbd5" />
 
-<meta name="keywords" content="Ayush Ahuja Resume ,Ayush, Ayush Ahuja, Resume,Ayush Portfolio, Full Stack Developer, React Developer, Spring Boot">
-<meta name="author" content="Ayush Ahuja">
-<meta name="robots" content="index, follow">
-    
+  <meta name="description"
+    content="Explore Ayush Ahuja's professional resume, portfolio, and skills as a Full Stack Developer with expertise in React and Spring Boot.">
 
-<link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet"crossorigin="anonymous">
+  <meta name="keywords"
+    content="Ayush Ahuja Resume ,Ayush, Ayush Ahuja, Resume,Ayush Portfolio, Full Stack Developer, React Developer, Spring Boot">
+  <meta name="author" content="Ayush Ahuja">
+  <meta name="robots" content="index, follow">
 
- 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=chevron_right"
-    />
-  </head>
-  <body>
-    <!-- header start -->
-    <header style="position: sticky; top: 0; z-index: 1000">
-      <nav class="nav">
-        <div class="brand">
-          <img src="images/book.png" alt="Brand Logo of Ayush" />
-          <span>Ayush Ahuja</span>
-        </div>
-        <!-- Check this once -->
-         <div class="menu-icon" id="menu-icon">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <ul class="links">
-          <li><a href="#banner">Home</a></li>
-          <li><a href="#about">About</a></li>
-           <li><a href="service.html">Service</a></li>
-          <li><a href="#summary">Summary</a></li>
-          <li><a href="#contact ">Contact</a></li>
-        </ul>
-         <script src="js/script.js"></script>
-      </nav>
-    </header>
-    <!-- header end -->
 
-    <!-- BANNER SECTION -->
-    <section class="banner" id="banner">
-      <div class="overlay "></div>
-      
-      <h1 style="color: rgb(238, 237, 252)" class="heading" id="heading">
-       <!-- Ayush Ahuja |  Fullstack Stack Developer | React + Spring Boot  -->
-        
-      </h1>
-  <script>
-        const texts = [
-            "I am Ayush Ahuja . ",
-            "I am Java Developer .",
-            "I am React Developer .",
-            "I am working in Oracle ."
-        ];
+  <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-        let currentTextIndex = 0;
-        let currentCharIndex = 0;
-        let typingSpeed = 150;
-        let deletingSpeed = 100;
-        let delayBetweenText = 2000; // Delay before starting to delete
-        const headingElement = document.getElementById("heading");
 
-        function typeText() {
-            if (currentCharIndex < texts[currentTextIndex].length) {
-                headingElement.textContent += texts[currentTextIndex].charAt(currentCharIndex);
-                currentCharIndex++;
-                setTimeout(typeText, typingSpeed);
-            } else {
-                // Wait for the text to be fully typed before starting to delete
-                setTimeout(deleteText, delayBetweenText);
-            }
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=chevron_right" />
+</head>
+
+<body>
+  <!-- header start -->
+  <header style="position: sticky; top: 0; z-index: 1000">
+    <nav class="nav">
+      <div class="brand">
+        <img src="images/book.png" alt="Brand Logo of Ayush" />
+        <span>Ayush Ahuja</span>
+      </div>
+      <!-- Check this once -->
+      <div class="menu-icon" id="menu-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <ul class="links">
+        <li><a href="#banner">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#contact ">Contact</a></li>
+      </ul>
+      <script src="js/script.js"></script>
+    </nav>
+  </header>
+  <!-- header end -->
+
+  <!-- BANNER SECTION -->
+  <section class="banner" id="banner">
+    <div class="overlay "></div>
+
+    <h1 style="color: rgb(238, 237, 252)" class="heading" id="heading">
+      <!-- Ayush Ahuja |  Fullstack Stack Developer | React + Spring Boot  -->
+
+    </h1>
+    <script>
+      const texts = [
+        "I am Ayush Ahuja . ",
+        "I am Java Developer .",
+        "I am React Developer .",
+        "I am working in Oracle ."
+      ];
+
+      let currentTextIndex = 0;
+      let currentCharIndex = 0;
+      let typingSpeed = 150;
+      let deletingSpeed = 100;
+      let delayBetweenText = 2000; // Delay before starting to delete
+      const headingElement = document.getElementById("heading");
+
+      function typeText() {
+        if (currentCharIndex < texts[currentTextIndex].length) {
+          headingElement.textContent += texts[currentTextIndex].charAt(currentCharIndex);
+          currentCharIndex++;
+          setTimeout(typeText, typingSpeed);
+        } else {
+          // Wait for the text to be fully typed before starting to delete
+          setTimeout(deleteText, delayBetweenText);
         }
+      }
 
-        function deleteText() {
-            if (currentCharIndex > 0) {
-                headingElement.textContent = headingElement.textContent.substring(0, currentCharIndex - 1);
-                currentCharIndex--;
-                setTimeout(deleteText, deletingSpeed);
-            } else {
-                // Move to the next text after deleting
-                currentTextIndex = (currentTextIndex + 1) % texts.length;
-                setTimeout(typeText, typingSpeed);
-            }
+      function deleteText() {
+        if (currentCharIndex > 0) {
+          headingElement.textContent = headingElement.textContent.substring(0, currentCharIndex - 1);
+          currentCharIndex--;
+          setTimeout(deleteText, deletingSpeed);
+        } else {
+          // Move to the next text after deleting
+          currentTextIndex = (currentTextIndex + 1) % texts.length;
+          setTimeout(typeText, typingSpeed);
         }
+      }
 
-        typeText(); // Start typing the first text
+      typeText(); // Start typing the first text
     </script>
 
 
-      <p style="color: snow" class="sub_heading">
-        I have good command on backend using spring boot and frontend using
-        react. I have done several projects.
-      </p>
-      <button class="button"><a style="text-decoration:none;"href="https://raw.githubusercontent.com/AyushAhuja2707/Resume_Ayush/master/Ayush_Ahuja_Resume.pdf" download="Ayush_Ahuja_Resume.pdf">Download Resume</a> </button>
-    </section>
-    <!-- END OF BANNER -->
-    <section class="about" id="about">
-      <div class="section_header">
-        <h1 class="heading">About</h1>
-        <p class="sub_heading">These things tell more about me</p>
-        <div class="heading_border"></div>
+    <p style="color: snow" class="sub_heading">
+      I have good command on backend using spring boot and frontend using
+      react. I have done several projects.
+    </p>
+    <button class="button"><a style="text-decoration:none;"
+        href="https://raw.githubusercontent.com/AyushAhuja2707/Resume_Ayush/master/Ayush_Ahuja_Resume.pdf"
+        download="Ayush_Ahuja_Resume.pdf">Download Resume</a> </button>
+  </section>
+  <!-- END OF BANNER -->
+  <section class="about" id="about">
+    <div class="section_header">
+      <h1 class="heading">About</h1>
+      <p class="sub_heading">These things tell more about me</p>
+      <div class="heading_border"></div>
+    </div>
+    <div style="gap: 40px" class="about_info items-center">
+      <div class="image image-effect">
+        <img src="images/Ayush_Ahuja_Photo.jpg" alt="My info" />
       </div>
-      <div style="gap: 40px" class="about_info items-center">
-        <div class="image image-effect">
-          <img src="images/Ayush_Ahuja_Photo.jpg" alt="My info" />
-        </div>
-        <div class="information">
-          <h1>Front End & Back End Developer with 2 years Experience</h1>
-          <p>
-            Hi! I’m a passionate software engineer who thrives on making things work smoothly. From writing
- clean code to tackling complex issues and collaborating with teams, I’m all about delivering seamless
- solutions. Let’s build great software together!
-          </p>
-          <div class="flex-container px-10" style="width: 70%;">
-            <div class="">
-              <ul class="flex flex-direction-column gap-20">
-                <li class="flex">
-                  <span class="material-symbols-outlined icon-color">
-                    chevron_right </span
-                  ><span class="font-bold">Birthday : </span> 27/07/2001
-                </li>
-                
-                <li class="flex">
-                  <span class="material-symbols-outlined icon-color">
-                    chevron_right </span
-                  ><span class="font-bold">City : </span> Mumbai
-                </li>
-                <li class="flex">
-                  <span class="material-symbols-outlined icon-color">
-                    chevron_right </span
-                  ><span class="font-bold">Phone : </span> 9867968972
-                </li>
-                <li class="flex">
-                  <span class="material-symbols-outlined icon-color">
-                    chevron_right </span
-                  ><span class="font-bold">Languages  Known: </span> English / Hindi 
-                </li>
-              </ul>
-            </div>
+      <div class="information">
+        <h1>Front End & Back End Developer with 2 years Experience</h1>
+        <p>
+          Hi! I’m a passionate software engineer who thrives on making things work smoothly. From writing
+          clean code to tackling complex issues and collaborating with teams, I’m all about delivering seamless
+          solutions. Let’s build great software together!
+        </p>
+        <div class="flex-container px-10" style="width: 70%;">
+          <div class="">
+            <ul class="flex flex-direction-column gap-20">
+              <li class="flex">
+                <span class="material-symbols-outlined icon-color">
+                  chevron_right </span><span class="font-bold">Birthday : </span> 27/07/2001
+              </li>
 
-            <div>
-              <ul class="flex flex-direction-column gap-20">
-                <li class="flex">
-                  <span class="material-symbols-outlined icon-color">
-                    chevron_right </span
-                  ><span class="font-bold">Age : </span> 23
-                </li>
-                <li class="flex">
-                  <span class="material-symbols-outlined icon-color">
-                    chevron_right
-                  </span>
-                  <span class="font-bold">Degree : </span> Bachelor of
-                  Engineering
-                </li>
-                <li class="flex">
-                  <span class="material-symbols-outlined icon-color">
-                    chevron_right
-                  </span>
-                  <span class="font-bold">Email : </span> ayushahuja200@gmail.com
-                </li>
-                <li class="flex">
-                  <span class="material-symbols-outlined icon-color">
-                    chevron_right </span
-                  ><span class="font-bold">Freelance : </span>Available
-                </li>
-              </ul>
-            </div>
+              <li class="flex">
+                <span class="material-symbols-outlined icon-color">
+                  chevron_right </span><span class="font-bold">City : </span> Mumbai
+              </li>
+              <li class="flex">
+                <span class="material-symbols-outlined icon-color">
+                  chevron_right </span><span class="font-bold">Phone : </span> 9867968972
+              </li>
+              <li class="flex">
+                <span class="material-symbols-outlined icon-color">
+                  chevron_right </span><span class="font-bold">Languages Known: </span> English / Hindi
+              </li>
+            </ul>
           </div>
+
           <div>
+            <ul class="flex flex-direction-column gap-20">
+              <li class="flex">
+                <span class="material-symbols-outlined icon-color">
+                  chevron_right </span><span class="font-bold">Age : </span> 23
+              </li>
+              <li class="flex">
+                <span class="material-symbols-outlined icon-color">
+                  chevron_right
+                </span>
+                <span class="font-bold">Degree : </span> Bachelor of
+                Engineering
+              </li>
+              <li class="flex">
+                <span class="material-symbols-outlined icon-color">
+                  chevron_right
+                </span>
+                <span class="font-bold">Email : </span> ayushahuja200@gmail.com
+              </li>
+              <li class="flex">
+                <span class="material-symbols-outlined icon-color">
+                  chevron_right </span><span class="font-bold">Freelance : </span>Available
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
           Interests : Problem-Solving , Creativity , Logic and Analytical Thinking , Playing Table Tennis
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END IF ABOUT -->
+  <!-- START SUMMARY AND SKILLS  -->
+  <section class="summary" style="padding: 50px;" id="summary">
+    <div class="section_header ">
+      <h1 class="heading">More About Me</h1>
+      <p class="sub_heading">These things tell more about me</p>
+      <div class="heading_border"></div>
+    </div>
+    <div class="flex split-768" style="align-items: center;">
+      <div class="summary-card flex flex-direction-column gap-20" style="width: 50vw">
+        <h1>Summary</h1>
+
+        <div class="border-left relative flex pl-20 flex-direction-column gap-30">
+          <div class="circle"></div>
+          <div class="flex-direction-column gap-20 relative" style="top: -25px">
+            <h2>Ayush Ahuja</h2>
+            <p>
+              Highly motivated and result-driven individual with a strong
+              passion for software development and problem
+            </p>
+            <br>
+            <ul class="flex flex-direction-column gap-20 pl-20">
+              <li>Java Developer</li>
+              <li>Front End Developer</li>
+              <li>SQL Developer</li>
+              <li>Python Developer</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 2nd half -->
+        <h1 style="margin-bottom: 8px; margin-top: 10px">Education</h1>
+        <div class="border-left relative flex pl-20 flex-direction-column gap-30">
+          <div class="circle"></div>
+          <div class="flex-direction-column gap-20 relative" style="top: -25px; margin-bottom: 19px">
+            <h2>Thakur College of Mumbai</h2>
+
+            <ul class="flex flex-direction-column gap-20 pl-20">
+              <li>Computer Engineering (2023 passout)</li>
+              <li>9.78 CGPA</li>
+            </ul>
           </div>
         </div>
       </div>
-    </section>
-    <!-- END IF ABOUT -->
-    <!-- START SUMMARY AND SKILLS  -->
-    <section class="summary" style="padding: 50px;" id="summary">
-      <div class="section_header ">
-        <h1 class="heading">More About Me</h1>
-        <p class="sub_heading">These things tell more about me</p>
-        <div class="heading_border"></div>
-      </div>
-      <div class="flex split-768" style="align-items: center;">
-        <div
-          class="summary-card flex flex-direction-column gap-20"
-          style="width: 50vw"
-        >
-          <h1>Summary</h1>
 
-          <div
-            class="border-left relative flex pl-20 flex-direction-column gap-30"
-          >
+      <div class="" style="width: 50vw">
+        <div class="summary-card flex flex-direction-column gap-20" style="width: 50vw">
+          <h1>Professional Experience</h1>
+
+          <div class="border-left relative flex pl-20 flex-direction-column gap-30">
             <div class="circle"></div>
-            <div
-              class="flex-direction-column gap-20 relative"
-              style="top: -25px"
-            >
-              <h2>Ayush Ahuja</h2>
+            <div class="flex-direction-column gap-20 relative" style="top: -25px">
+              <h2>Oracle</h2>
+              <br>
               <p>
-                Highly motivated and result-driven individual with a strong
-                passion for software development and problem
+                <b>Project : HDFC Netbanking Application </b>
               </p>
               <br>
               <ul class="flex flex-direction-column gap-20 pl-20">
-                <li>Java Developer</li>
-                <li>Front End Developer</li>
-                <li>SQL Developer</li>
-                <li>Python Developer</li>
+                <li>
+                  Developed and deployed scalable REST APIs for HDFC Netbanking, Flexcube, and OBP modules,
+                  covering account management, transaction history, fund transfers, and balance inquiry
+                </li>
+                <li>
+                  Built FDOD Key Fact Statement (KFS) module using XSL-FO templates to dynamically generate
+                  RBI-compliant customer statements
+                </li>
+                <li>
+                  Optimized authentication workflows by implementing a dual-queue OTP management system,
+                  reducing delays by 70% and enhancing system scalability under peak loads
+                </li>
+                <li>
+                  Implemented a transaction rate limiter for TCS module in Netbanking, mitigating fraud risks
+                  from high-frequency requests and ensuring secure, compliant, and fair usage
+                </li>
+                <li>
+                  Integrated CCIL services using JWT-based authentication, reducing redundant API calls
+                  and improving system throughput. Designed a 24-hour JVM token strategy to optimize
+                  resource utilization while maintaining security and compliance
+                  .
+                </li>
+
+                <li>
+                  TunedSQL/PLSQLqueries andbackend Java processes, reducing API response times and improving
+                  scalability for high-volume transactions
+                </li>
+
+                <li>
+                  Assisted clients with production monitoring, RCA reporting, and compliance-related queries, in
+                  cluding support for RBI-mandated audits
+                </li>
+
+                <li>
+                  Collaborated with cross-functional teams (frontend, database, infrastructure) to deliver defect-free
+                  UAT and smooth production deployments
+                </li>
+                <li>
+                  Tech Stack: Java, SQL, PL/SQL, XSL, with a focus on banking
+                  applications.
+                </li>
               </ul>
-            </div>
-          </div>
-          <!-- 2nd half -->
-          <h1 style="margin-bottom: 8px; margin-top: 10px">Education</h1>
-          <div
-            class="border-left relative flex pl-20 flex-direction-column gap-30"
-          >
-            <div class="circle"></div>
-            <div
-              class="flex-direction-column gap-20 relative"
-              style="top: -25px; margin-bottom: 19px"
-            >
-              <h2>Thakur College of Mumbai</h2>
-
-              <ul class="flex flex-direction-column gap-20 pl-20">
-                <li>Computer Engineering (2023 passout)</li>
-                <li>9.78 CGPA</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="" style="width: 50vw">
-          <div
-            class="summary-card flex flex-direction-column gap-20"
-            style="width: 50vw"
-          >
-            <h1>Professional Experience</h1>
-
-            <div
-              class="border-left relative flex pl-20 flex-direction-column gap-30"
-            >
-              <div class="circle"></div>
-              <div
-                class="flex-direction-column gap-20 relative"
-                style="top: -25px"
-              >
-                <h2>Oracle</h2>
-                <br>
-                <p>
-                 <b>Project : HDFC Netbanking Application </b>
-                </p>
-                <br>
-                <ul class="flex flex-direction-column gap-20 pl-20">
-                  <li>
-                    Issue Resolution: Analyzed and resolved technical issues
-                    according to best practices, ensuring optimal performance
-                    for HDFC Bank.
-                  </li>
-                  <li>
-                    Stakeholder Collaboration: Worked closely with stakeholders
-                    to gather requirements and deliver customized software
-                    solutions.
-                  </li>
-                  <li>
-                    OTP Load Management: Implemented a dual-queue system for OTP
-                    processing, improving load distribution and reducing wait
-                    times by 70% .
-                  </li>
-                  <li>
-                    Root Cause Analysis: Identified recurring technical issues
-                    and developed solutions to minimize service disruptions.
-                  </li>
-                  <li>
-                    Client Support: Assisted clients in application monitoring
-                    and provided timely responses to technical queries.
-                    Performance Optimization: Increased system performance by
-                    implementing optimizations, enhancing speed and scalability
-                    .
-                  </li>
-                  <li>
-                    Tech Stack: Java, SQL, PL/SQL, XSL, with a focus on banking
-                    applications.
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- end of summary -->
-    
-      <section class="contact " style="margin-top: 0.8%;" id="contact">
-        <div class="section_header">
-          <h1 class="heading">Contact Me</h1>
-          <p class="sub_heading">You can contact me with</p>
-          <div class="heading_border"></div>
-        </div>
+    </div>
+  </section>
+  <!-- end of summary -->
 
-        <div class="flex items-center">
-          <!-- left -->
-          <div class="p-40" style="width: 50vw " >
-            <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15068.542375434692!2d72.96451365470588!3d19.232921472249085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b95f5529e6c3%3A0x2327712f1ed47402!2sDosti%20Imperia!5e0!3m2!1sen!2sin!4v1734045351438!5m2!1sen!2sin" class="w-full" style="border:0; height: 400px; border: 2px solid black;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <section class="contact " style="margin-top: 0.8%;" id="contact">
+    <div class="section_header">
+      <h1 class="heading">Contact Me</h1>
+      <p class="sub_heading">You can contact me with</p>
+      <div class="heading_border"></div>
+    </div>
+
+    <div class="flex items-center">
+      <!-- left -->
+      <div class="p-40" style="width: 50vw ">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15068.542375434692!2d72.96451365470588!3d19.232921472249085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b95f5529e6c3%3A0x2327712f1ed47402!2sDosti%20Imperia!5e0!3m2!1sen!2sin!4v1734045351438!5m2!1sen!2sin"
+          class="w-full" style="border:0; height: 400px; border: 2px solid black;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <!-- right -->
+      <div class="form_container " style="width: 50vw;">
+        <form action="contact.html">
+          <div class="form_input">
+            <label for="name">Name</label>
+            <input type="text" />
           </div>
-          <!-- right -->
-            <div class="form_container " style="width: 50vw;" >
-              <form action="contact.html">
-                <div class="form_input">
-                <label for="name">Name</label>
-                <input type="text" />
-              </div>
-              <div class="form_input">
-                <label for="name">Email</label>
-                <input type="text" />
-              </div>
-              <div class="form_input">
-                <label for="name">Message</label>
-                <textarea name="" id="" cols="30" rows="10" fixed></textarea>
-              </div>
+          <div class="form_input">
+            <label for="name">Email</label>
+            <input type="text" />
+          </div>
+          <div class="form_input">
+            <label for="name">Message</label>
+            <textarea name="" id="" cols="30" rows="10" fixed></textarea>
+          </div>
 
-              <div class="flex  p-20 gap-10" style="justify-content: center;">
-                <button class="success-button button " type="submit">
-                  Send Message
-                </button>
-                <button class="reset-button button" type="reset">Reset</button>
-              </div>
-              </form>
-            </div>
-        </div>
+          <div class="flex  p-20 gap-10" style="justify-content: center;">
+            <button class="success-button button " type="submit">
+              Send Message
+            </button>
+            <button class="reset-button button" type="reset">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
-        
+
     <section id="footer">
-    <footer>  
-        <!-- Footer content goes here -->  
-        <p> © 2025 My Website. All rights reserved. </p>  
-        <p> Contact: ayushahuja200@gmail.com </p>  
-        
-    </footer>  
+      <footer>
+        <!-- Footer content goes here -->
+        <p> © 2025 My Website. All rights reserved. </p>
+        <p> Contact: ayushahuja200@gmail.com </p>
+
+      </footer>
 
 
-        </section>
+    </section>
     </div>
     <script src="js/first.js"></script>
-  </body>
+</body>
+
 </html>
