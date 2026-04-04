@@ -1,352 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ayush Ahuja | Software Developer | Portfolio & Resume</title>
-
-  <link rel="stylesheet" href="css/styles.css" />
+  <title>Ayush Ahuja — Java Backend Engineer @ Oracle</title>
+  <meta name="description" content="Ayush Ahuja — Java Backend Developer at Oracle Financial Services. Spring Boot, Microservices, AWS, React." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <meta name="google-site-verification" content="google541cf6825541dbd5" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #07070d;
+      --bg2: #0c0c15;
+      --surface: #12121e;
+      --card: #0f0f1a;
+      --border: rgba(255,255,255,0.06);
+      --border2: rgba(255,255,255,0.12);
+      --accent: #7c6fff;
+      --accent2: #ff6b9d;
+      --accent3: #38f9a4;
+      --accent4: #ffd166;
+      --text: #ddddf0;
+      --muted: #6a6a96;
+      --muted2: #9090bb;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; overflow-x: hidden; cursor: none; }
 
-  <meta name="description"
-    content="Explore Ayush Ahuja's professional resume, portfolio, and skills as a Full Stack Developer with expertise in React and Spring Boot.">
+    /* CURSOR */
+    #cur { position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:exclusion;transition:width .2s,height .2s; }
+    #cur-ring { position:fixed;width:36px;height:36px;border:1px solid rgba(124,111,255,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s; }
+    body.hov #cur { width:18px;height:18px; }
+    body.hov #cur-ring { width:56px;height:56px;border-color:rgba(124,111,255,.7); }
 
-  <meta name="keywords"
-    content="Ayush Ahuja Resume ,Ayush, Ayush Ahuja, Resume,Ayush Portfolio, Full Stack Developer, React Developer, Spring Boot">
-  <meta name="author" content="Ayush Ahuja">
-  <meta name="robots" content="index, follow">
+    /* NAV */
+    nav { position:fixed;top:0;left:0;right:0;z-index:1000;padding:22px 64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,7,13,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:padding .3s; }
+    nav.sh { padding:14px 64px; }
+    .nav-logo { font-family:'Syne',sans-serif;font-weight:800;font-size:19px;color:var(--white);text-decoration:none;letter-spacing:-.5px; }
+    .nav-logo em { color:var(--accent);font-style:normal; }
+    .nav-links { display:flex;gap:36px;list-style:none; }
+    .nav-links a { color:var(--muted);text-decoration:none;font-size:12px;letter-spacing:.08em;transition:color .2s; }
+    .nav-links a:hover { color:var(--white); }
+    .nav-btn { background:transparent;border:1px solid rgba(124,111,255,.4);color:var(--accent);padding:9px 22px;border-radius:6px;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;text-decoration:none;transition:all .2s; }
+    .nav-btn:hover { background:var(--accent);color:#fff;box-shadow:0 0 30px rgba(124,111,255,.4); }
 
+    /* HERO */
+    .hero { min-height:100vh;position:relative;display:flex;align-items:center;padding:120px 64px 100px;overflow:hidden; }
+    .hero-grid { position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(124,111,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(124,111,255,.035) 1px,transparent 1px);background-size:72px 72px; }
+    .orb1 { position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(124,111,255,.13) 0%,transparent 65%);top:-200px;right:-300px;pointer-events:none;animation:drift 12s ease-in-out infinite alternate; }
+    .orb2 { position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,157,.07) 0%,transparent 65%);bottom:-100px;left:-150px;pointer-events:none;animation:drift 15s 2s ease-in-out infinite alternate-reverse; }
+    @keyframes drift { 0%{transform:translate(0,0)} 100%{transform:translate(30px,-40px)} }
+    .hero-c { position:relative;z-index:1; }
+    .chip { display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(124,111,255,.3);background:rgba(124,111,255,.08);padding:6px 16px;border-radius:100px;font-size:11px;color:var(--accent);letter-spacing:.1em;margin-bottom:40px;animation:fadeUp .8s ease both; }
+    .chip-dot { width:6px;height:6px;border-radius:50%;background:var(--accent3);animation:blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
+    h1.hh { font-family:'Syne',sans-serif;font-size:clamp(60px,9vw,120px);font-weight:800;letter-spacing:-4px;line-height:.92;color:var(--white);animation:fadeUp .8s .1s ease both; }
+    h1.hh .acc { color:var(--accent); }
+    .hero-tag { font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(20px,2.5vw,32px);color:var(--muted2);margin:20px 0 32px;animation:fadeUp .8s .2s ease both; }
+    .hero-desc { font-size:14px;line-height:1.9;color:var(--muted);max-width:520px;margin-bottom:48px;animation:fadeUp .8s .3s ease both; }
+    .hero-ctas { display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .4s ease both; }
+    .btn-p { background:var(--accent);color:#fff;padding:14px 32px;border-radius:7px;text-decoration:none;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;transition:all .25s; }
+    .btn-p:hover { transform:translateY(-3px);box-shadow:0 20px 50px rgba(124,111,255,.45); }
+    .btn-g { border:1px solid var(--border2);color:var(--muted2);padding:14px 32px;border-radius:7px;text-decoration:none;font-family:'Syne',sans-serif;font-weight:600;font-size:13px;letter-spacing:.04em;transition:all .25s; }
+    .btn-g:hover { border-color:var(--accent);color:var(--accent); }
+    .hero-side { position:absolute;right:64px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:40px;z-index:1;animation:fadeLeft .8s .5s ease both; }
+    .hs-n { font-family:'Syne',sans-serif;font-size:44px;font-weight:800;color:var(--white);line-height:1; }
+    .hs-n span { color:var(--accent); }
+    .hs-l { font-size:10px;letter-spacing:.14em;color:var(--muted);margin-top:4px;text-transform:uppercase; }
+    .scroll-h { position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:10px;letter-spacing:.14em;color:var(--muted);animation:fadeUp 1s .9s ease both; }
+    .scroll-b { width:1px;height:56px;background:linear-gradient(to bottom,var(--accent),transparent);animation:pbar 2s ease infinite; }
+    @keyframes pbar { 0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.01%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom} }
 
-  <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    /* SECTION */
+    section { padding:110px 64px; }
+    section.alt { background:var(--bg2); }
+    .sl { display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:18px; }
+    .sl::after { content:'';width:48px;height:1px;background:var(--accent); }
+    h2.st { font-family:'Syne',sans-serif;font-size:clamp(34px,5vw,64px);font-weight:800;letter-spacing:-2px;color:var(--white);line-height:1;margin-bottom:14px; }
+    .ss { font-size:14px;color:var(--muted);line-height:1.8;max-width:480px;margin-bottom:64px; }
 
+    /* ABOUT */
+    .about-g { display:grid;grid-template-columns:360px 1fr;gap:80px;align-items:start; }
+    .pf { position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:var(--surface); }
+    .pf img { width:100%;height:100%;object-fit:cover;filter:saturate(.85);display:block; }
+    .pf::after { content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(124,111,255,.2) 0%,transparent 55%); }
+    .pb { position:absolute;inset:-14px -14px 14px 14px;border:1px solid rgba(124,111,255,.25);border-radius:16px;z-index:-1; }
+    .ob { position:absolute;bottom:-18px;right:-18px;background:linear-gradient(135deg,#e31c00,#c11000);border-radius:12px;padding:18px 22px;z-index:2; }
+    .ob-t { font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:#fff; }
+    .ob-s { font-size:10px;color:rgba(255,255,255,.75);letter-spacing:.05em; }
+    .at p { font-size:14px;line-height:1.95;color:var(--muted);margin-bottom:28px; }
+    .at p strong { color:var(--text); }
+    .dg { display:grid;grid-template-columns:1fr 1fr;gap:18px 32px;margin-bottom:36px; }
+    .dk { font-size:9px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:3px; }
+    .dv { font-size:13px;color:var(--text); }
+    .pills { display:flex;flex-wrap:wrap;gap:8px; }
+    .pill { background:rgba(124,111,255,.09);border:1px solid rgba(124,111,255,.22);color:var(--accent);padding:5px 13px;border-radius:4px;font-size:11px; }
 
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=chevron_right" />
+    /* EXPERIENCE */
+    .tl { max-width:860px; }
+    .ti { display:grid;grid-template-columns:180px 1fr;gap:0;padding:52px 0;border-bottom:1px solid var(--border);position:relative; }
+    .ti::before { content:'';position:absolute;left:178px;top:0;bottom:0;width:1px;background:var(--border); }
+    .tdot { position:absolute;left:172px;top:58px;width:14px;height:14px;background:var(--accent);border-radius:50%;box-shadow:0 0 22px var(--accent); }
+    .tl-l { padding-right:36px; }
+    .td { font-size:11px;color:var(--muted);letter-spacing:.05em;margin-bottom:10px; }
+    .tc { font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--white); }
+    .tr { font-size:12px;color:var(--accent);margin-top:4px; }
+    .tloc { font-size:11px;color:var(--muted);margin-top:4px; }
+    .tl-r { padding-left:44px; }
+    .pbadge { display:inline-flex;align-items:center;gap:6px;background:rgba(56,249,164,.08);border:1px solid rgba(56,249,164,.22);color:var(--accent3);padding:4px 12px;border-radius:4px;font-size:10px;letter-spacing:.07em;margin-bottom:20px; }
+    .tlist { list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:24px; }
+    .tlist li { font-size:13px;color:var(--muted);line-height:1.75;padding-left:22px;position:relative; }
+    .tlist li::before { content:'›';position:absolute;left:0;color:var(--accent);font-size:16px;line-height:1.5; }
+    .tlist li strong { color:var(--text); }
+    .trow { display:flex;flex-wrap:wrap;gap:7px; }
+    .ttag { background:var(--surface);border:1px solid var(--border);color:var(--muted);padding:3px 11px;border-radius:4px;font-size:10px;letter-spacing:.06em; }
+
+    /* PROJECTS */
+    .pg { display:grid;grid-template-columns:1fr 1fr;gap:24px; }
+    .pc { background:var(--card);border:1px solid var(--border);border-radius:14px;padding:36px;transition:border-color .3s,transform .3s;position:relative;overflow:hidden; }
+    .pc::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .3s; }
+    .pc:hover { border-color:rgba(124,111,255,.3);transform:translateY(-4px); }
+    .pc:hover::before { transform:scaleX(1); }
+    .pi { font-size:32px;margin-bottom:20px; }
+    .pt { font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--white);margin-bottom:12px; }
+    .pd { font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:20px; }
+    .plist { list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:20px; }
+    .plist li { font-size:12px;color:var(--muted);padding-left:16px;position:relative; }
+    .plist li::before { content:'·';position:absolute;left:0;color:var(--accent);font-size:18px;line-height:1; }
+
+    /* SKILLS */
+    .skl { display:grid;grid-template-columns:repeat(2,1fr);gap:24px; }
+    .skc { background:var(--card);border:1px solid var(--border);border-radius:14px;padding:32px;transition:border-color .3s,transform .3s; }
+    .skc:hover { border-color:rgba(124,111,255,.3);transform:translateY(-3px); }
+    .skh { display:flex;align-items:center;gap:12px;margin-bottom:24px; }
+    .ski { font-size:22px; }
+    .skt { font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--white); }
+    .skbs { display:flex;flex-direction:column;gap:14px; }
+    .skr { display:flex;flex-direction:column;gap:6px; }
+    .skm { display:flex;justify-content:space-between;font-size:11px;color:var(--muted); }
+    .sktr { height:3px;background:var(--surface);border-radius:2px;overflow:hidden; }
+    .skf { height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform 1.1s cubic-bezier(.23,1,.32,1); }
+    .skf.on { transform:scaleX(1); }
+    .certg { display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px; }
+    .certc { background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 24px;display:flex;gap:14px;align-items:flex-start;transition:border-color .3s; }
+    .certc:hover { border-color:rgba(124,111,255,.3); }
+    .certi { font-size:22px;flex-shrink:0; }
+    .certn { font-size:13px;color:var(--text);font-weight:500;line-height:1.4;margin-bottom:4px; }
+    .certo { font-size:11px;color:var(--muted); }
+
+    /* ACHIEVEMENTS */
+    .achg { display:grid;grid-template-columns:repeat(2,1fr);gap:20px; }
+    .achi { background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 32px;display:flex;gap:18px;align-items:flex-start;transition:border-color .3s; }
+    .achi:hover { border-color:rgba(124,111,255,.3); }
+    .achn { font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:var(--accent);line-height:1;flex-shrink:0;min-width:80px; }
+    .acht { font-size:13px;color:var(--muted);line-height:1.7;padding-top:6px; }
+    .acht strong { color:var(--text);display:block;margin-bottom:4px;font-size:14px; }
+    .codrow { display:flex;gap:20px;flex-wrap:wrap; }
+    .codc { flex:1;min-width:200px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;display:flex;align-items:center;gap:20px;transition:border-color .3s,transform .3s; }
+    .codc:hover { border-color:rgba(124,111,255,.3);transform:translateY(-3px); }
+    .codp { font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--white); }
+    .codh { font-size:12px;color:var(--accent);margin-top:4px; }
+    .codi { font-size:30px; }
+
+    /* EDUCATION */
+    .edus { display:flex;flex-direction:column;gap:20px;max-width:800px; }
+    .edur { background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 36px;display:flex;align-items:center;gap:28px;transition:border-color .3s; }
+    .edur:hover { border-color:rgba(124,111,255,.3); }
+    .edui { font-size:28px;flex-shrink:0;width:52px; }
+    .edud { font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--white);margin-bottom:4px; }
+    .edus2 { font-size:13px;color:var(--accent);margin-bottom:3px; }
+    .edum { font-size:11px;color:var(--muted); }
+    .edug { margin-left:auto;text-align:right; }
+    .edugn { font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--white);line-height:1; }
+    .edugl { font-size:9px;letter-spacing:.1em;color:var(--muted);margin-top:3px;text-transform:uppercase; }
+
+    /* CONTACT */
+    .cw { display:grid;grid-template-columns:1fr 1fr;gap:80px; }
+    .citems { display:flex;flex-direction:column;gap:28px; }
+    .ci { display:flex;gap:18px;align-items:center; }
+    .ciic { width:50px;height:50px;border:1px solid rgba(124,111,255,.22);background:rgba(124,111,255,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0; }
+    .cilbl { font-size:9px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:3px; }
+    .cival { font-size:14px;color:var(--text); }
+    .cival a { color:inherit;text-decoration:none; }
+    .cival a:hover { color:var(--accent); }
+    .cf2 { display:flex;flex-direction:column;gap:18px; }
+    .cf2 label { font-size:9px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:6px; }
+    .cf2 input,.cf2 textarea { width:100%;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px 16px;color:var(--text);font-family:'DM Mono',monospace;font-size:13px;outline:none;transition:border-color .2s; }
+    .cf2 input:focus,.cf2 textarea:focus { border-color:var(--accent); }
+    .cf2 textarea { resize:vertical;min-height:120px; }
+    .cfbtn { background:var(--accent);color:#fff;border:none;padding:15px 34px;border-radius:8px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;align-self:flex-start; }
+    .cfbtn:hover { transform:translateY(-2px);box-shadow:0 16px 40px rgba(124,111,255,.4); }
+
+    /* FOOTER */
+    footer { padding:36px 64px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px; }
+    .flogo { font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--white); }
+    .flogo em { color:var(--accent);font-style:normal; }
+    .fmid { font-size:12px;color:var(--muted); }
+    .socrow { display:flex;gap:12px; }
+    .soc { width:36px;height:36px;border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;text-decoration:none;transition:border-color .2s,transform .2s; }
+    .soc:hover { border-color:var(--accent);transform:translateY(-2px); }
+
+    /* REVEAL */
+    .rv { opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease; }
+    .rv.in { opacity:1;transform:none; }
+    .rv.d1{transition-delay:.1s} .rv.d2{transition-delay:.2s} .rv.d3{transition-delay:.3s}
+    @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
+    @keyframes fadeLeft { from{opacity:0;transform:translateX(28px)} to{opacity:1;transform:none} }
+
+    /* RESPONSIVE */
+    @media(max-width:900px) {
+      nav{padding:16px 24px} nav.sh{padding:12px 24px} .nav-links,.nav-btn{display:none}
+      .hero{padding:100px 24px 80px} .hero-side{display:none}
+      section{padding:80px 24px}
+      .about-g{grid-template-columns:1fr}
+      .pf{max-width:320px}
+      .ti{grid-template-columns:1fr}
+      .ti::before,.tdot{display:none}
+      .tl-r{padding-left:0;margin-top:20px}
+      .pg,.skl,.achg,.certg,.cw{grid-template-columns:1fr}
+      .edur{flex-direction:column;text-align:center;align-items:center}
+      .edug{margin-left:0;text-align:center}
+      footer{flex-direction:column;text-align:center}
+    }
+  </style>
 </head>
-
 <body>
-  <!-- header start -->
-  <header style="position: sticky; top: 0; z-index: 1000">
-    <nav class="nav">
-      <div class="brand">
-        <img src="images/book.png" alt="Brand Logo of Ayush" />
-        <span>Ayush Ahuja</span>
+  <div id="cur"></div>
+  <div id="cur-ring"></div>
+
+  <nav id="nav">
+    <a href="#home" class="nav-logo">Ayush<em>.</em></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="Ayush_Ahuja.pdf" class="nav-btn" download>Download CV</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-grid"></div>
+    <div class="orb1"></div>
+    <div class="orb2"></div>
+    <div class="hero-c">
+      <div class="chip"><div class="chip-dot"></div>Available for Freelance · Mumbai, India</div>
+      <h1 class="hh">Ayush<br><span class="acc">Ahuja</span></h1>
+      <p class="hero-tag">Java Backend Engineer</p>
+      <p class="hero-desc">Oracle Financial Services engineer building enterprise-grade banking infrastructure. 2 years delivering scalable microservices for HDFC Netbanking — Java 17, Spring Boot, and beyond.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-p">Let's Talk</a>
+        <a href="#experience" class="btn-g">View Work →</a>
       </div>
-      <!-- Check this once -->
-      <div class="menu-icon" id="menu-icon">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
-      <ul class="links">
-        <li><a href="#banner">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="service.html">Service</a></li>
-        <li><a href="#summary">Summary</a></li>
-        <li><a href="#contact ">Contact</a></li>
-      </ul>
-      <script src="js/script.js"></script>
-    </nav>
-  </header>
-  <!-- header end -->
-
-  <!-- BANNER SECTION -->
-  <section class="banner" id="banner">
-    <div class="overlay "></div>
-
-    <h1 style="color: rgb(238, 237, 252)" class="heading" id="heading">
-      <!-- Ayush Ahuja |  Fullstack Stack Developer | React + Spring Boot  -->
-
-    </h1>
-    <script>
-      const texts = [
-        "I am Ayush Ahuja . ",
-        "I am Java Developer .",
-        "I am React Developer .",
-        "I am working in Oracle ."
-      ];
-
-      let currentTextIndex = 0;
-      let currentCharIndex = 0;
-      let typingSpeed = 150;
-      let deletingSpeed = 100;
-      let delayBetweenText = 2000; // Delay before starting to delete
-      const headingElement = document.getElementById("heading");
-
-      function typeText() {
-        if (currentCharIndex < texts[currentTextIndex].length) {
-          headingElement.textContent += texts[currentTextIndex].charAt(currentCharIndex);
-          currentCharIndex++;
-          setTimeout(typeText, typingSpeed);
-        } else {
-          // Wait for the text to be fully typed before starting to delete
-          setTimeout(deleteText, delayBetweenText);
-        }
-      }
-
-      function deleteText() {
-        if (currentCharIndex > 0) {
-          headingElement.textContent = headingElement.textContent.substring(0, currentCharIndex - 1);
-          currentCharIndex--;
-          setTimeout(deleteText, deletingSpeed);
-        } else {
-          // Move to the next text after deleting
-          currentTextIndex = (currentTextIndex + 1) % texts.length;
-          setTimeout(typeText, typingSpeed);
-        }
-      }
-
-      typeText(); // Start typing the first text
-    </script>
-
-
-    <p style="color: snow" class="sub_heading">
-      I have good command on backend using spring boot and frontend using
-      react. I have done several projects.
-    </p>
-    <button class="button"><a style="text-decoration:none;"
-        href="https://raw.githubusercontent.com/AyushAhuja2707/Resume_Ayush/master/Ayush_Ahuja_Resume.pdf"
-        download="Ayush_Ahuja_Resume.pdf">Download Resume</a> </button>
-  </section>
-  <!-- END OF BANNER -->
-  <section class="about" id="about">
-    <div class="section_header">
-      <h1 class="heading">About</h1>
-      <p class="sub_heading">These things tell more about me</p>
-      <div class="heading_border"></div>
     </div>
-    <div style="gap: 40px" class="about_info items-center">
-      <div class="image image-effect">
-        <img src="images/Ayush_Ahuja_Photo.png" alt="My info" />
+    <div class="hero-side">
+      <div><div class="hs-n">2<span>+</span></div><div class="hs-l">Years at Oracle</div></div>
+      <div><div class="hs-n">70<span>%</span></div><div class="hs-l">Faster OTP Auth</div></div>
+      <div><div class="hs-n">300<span>+</span></div><div class="hs-l">DSA Problems</div></div>
+      <div><div class="hs-n">9.78</div><div class="hs-l">CGPA</div></div>
+    </div>
+    <div class="scroll-h"><div class="scroll-b"></div>scroll</div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="alt" id="about">
+    <div class="sl rv">01 — About</div>
+    <div class="about-g">
+      <div class="rv">
+        <div class="pf">
+          <img src="images/Ayush_Ahuja_Photo.jpg" alt="Ayush Ahuja" onerror="this.parentElement.style.background='linear-gradient(145deg,#1a1a2e,#16213e)';this.style.display='none';" />
+          <div class="pb"></div>
+          <div class="ob"><div class="ob-t">Oracle</div><div class="ob-s">FINANCIAL SERVICES</div></div>
+        </div>
       </div>
-      <div class="information">
-        <h1>Front End & Back End Developer with 2 years Experience</h1>
-        <p>
-          Hi! I’m a passionate software engineer who thrives on making things work smoothly. From writing
-          clean code to tackling complex issues and collaborating with teams, I’m all about delivering seamless
-          solutions. Let’s build great software together!
-        </p>
-        <div class="flex-container px-10" style="width: 70%;">
-          <div class="">
-            <ul class="flex flex-direction-column gap-20">
-              <li class="flex">
-                <span class="material-symbols-outlined icon-color">
-                  chevron_right </span><span class="font-bold">Birthday : </span> 27/07/2001
-              </li>
+      <div class="at">
+        <div class="sl rv">Who I Am</div>
+        <h2 class="st rv">Backend<br>Engineer</h2>
+        <p class="rv">I'm a <strong>Java Backend Developer</strong> at Oracle Financial Services with 2 years of experience building enterprise-grade banking applications. My work powers HDFC Netbanking — one of India's largest digital banking platforms.</p>
+        <p class="rv">Beyond my day job, I'm an <strong>Oracle Certified Java SE 17 Professional</strong>, an active competitive programmer with 300+ DSA solutions, and a full-stack builder who loves shipping polished products end-to-end.</p>
+        <div class="dg rv">
+          <div><span class="dk">Email</span><span class="dv">ayushahuja200@gmail.com</span></div>
+          <div><span class="dk">Phone</span><span class="dv">+91 9867968972</span></div>
+          <div><span class="dk">Location</span><span class="dv">Mumbai, India</span></div>
+          <div><span class="dk">Freelance</span><span class="dv" style="color:var(--accent3)">✓ Available</span></div>
+          <div><span class="dk">Languages</span><span class="dv">English · Hindi</span></div>
+          <div><span class="dk">GitHub</span><span class="dv">AyushAhuja2707</span></div>
+        </div>
+        <div class="pills rv">
+          <span class="pill">Problem-Solving</span>
+          <span class="pill">Analytical Thinking</span>
+          <span class="pill">Creativity</span>
+          <span class="pill">Table Tennis 🏓</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-              <li class="flex">
-                <span class="material-symbols-outlined icon-color">
-                  chevron_right </span><span class="font-bold">City : </span> Mumbai
-              </li>
-              <li class="flex">
-                <span class="material-symbols-outlined icon-color">
-                  chevron_right </span><span class="font-bold">Phone : </span> 9867968972
-              </li>
-              <li class="flex">
-                <span class="material-symbols-outlined icon-color">
-                  chevron_right </span><span class="font-bold">Languages Known: </span> English / Hindi
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <ul class="flex flex-direction-column gap-20">
-              <li class="flex">
-                <span class="material-symbols-outlined icon-color">
-                  chevron_right </span><span class="font-bold">Age : </span> 23
-              </li>
-              <li class="flex">
-                <span class="material-symbols-outlined icon-color">
-                  chevron_right
-                </span>
-                <span class="font-bold">Degree : </span> Bachelor of
-                Engineering
-              </li>
-              <li class="flex">
-                <span class="material-symbols-outlined icon-color">
-                  chevron_right
-                </span>
-                <span class="font-bold">Email : </span> ayushahuja200@gmail.com
-              </li>
-              <li class="flex">
-                <span class="material-symbols-outlined icon-color">
-                  chevron_right </span><span class="font-bold">Freelance : </span>Available
-              </li>
-            </ul>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sl rv">02 — Experience</div>
+    <h2 class="st rv">Where I've<br>Made Impact</h2>
+    <p class="ss rv">Building scalable, compliant banking systems trusted by millions of users.</p>
+    <div class="tl">
+      <div class="ti rv">
+        <div class="tdot"></div>
+        <div class="tl-l">
+          <div class="td">Jun 2023 — Present</div>
+          <div class="tc">Oracle</div>
+          <div class="tr">Software Developer</div>
+          <div class="tloc">Mumbai, India</div>
+        </div>
+        <div class="tl-r">
+          <div class="pbadge">🏦 HDFC Netbanking · Flexcube · OBP</div>
+          <ul class="tlist">
+            <li>Developed and deployed <strong>scalable REST APIs</strong> for HDFC Netbanking covering account management, transaction history, fund transfers, and balance inquiry</li>
+            <li>Built <strong>SafeBox Hold Removal API</strong> to securely release account holds with proper validations, reducing manual intervention and improving operational efficiency</li>
+            <li>Built <strong>TD Account Opening APIs</strong> enabling seamless account creation workflows integrated with core banking systems</li>
+            <li>Implemented <strong>dual-queue OTP management system</strong> — reduced authentication delays by <strong>70%</strong> and improved scalability under peak loads</li>
+            <li>Implemented <strong>transaction rate limiter</strong> for TCS module, mitigating fraud risks from high-frequency requests</li>
+            <li>Integrated <strong>CCIL services via JWT authentication</strong>; designed a 24-hour JVM token strategy with auto-refresh to minimize redundant auth calls</li>
+            <li>Built <strong>FDOD Key Fact Statement module</strong> using XSL-FO templates for RBI-compliant dynamic customer statements</li>
+            <li>Tuned <strong>SQL/PL-SQL queries</strong> and backend Java processes for high-volume transaction scalability</li>
+            <li>Supported clients with <strong>production monitoring, RCA reporting</strong>, and RBI-mandated audit compliance</li>
+            <li>Collaborated across frontend, database, and infrastructure teams for <strong>defect-free UAT</strong> and smooth deployments</li>
+          </ul>
+          <div class="trow">
+            <span class="ttag">Java 17</span><span class="ttag">Spring Boot</span><span class="ttag">SQL</span><span class="ttag">PL/SQL</span><span class="ttag">XSL-FO</span><span class="ttag">JWT</span><span class="ttag">REST APIs</span><span class="ttag">Linux</span><span class="ttag">Docker</span><span class="ttag">Git</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="alt" id="projects">
+    <div class="sl rv">03 — Projects</div>
+    <h2 class="st rv">Personal<br>Builds</h2>
+    <p class="ss rv">Side projects that sharpen full-stack skills beyond the day job.</p>
+    <div class="pg">
+      <div class="pc rv">
+        <div class="pi">🏦</div>
+        <div class="pt">Netbanking Application</div>
+        <div class="pd">A full-stack banking simulation built from scratch — authentication, fund transfers, transaction history, and beneficiary management.</div>
+        <ul class="plist">
+          <li>REST APIs for account summary, fund transfer simulation, and transaction history</li>
+          <li>Authentication & authorization via Spring Security + JWT</li>
+          <li>Beneficiary management — add, delete, verify</li>
+          <li>JPA/Hibernate integration with optimized queries</li>
+          <li>Transaction logging & exception handling for secure processing</li>
+          <li>Clean layered architecture: Controller → Service → Repository</li>
+        </ul>
+        <div class="trow"><span class="ttag">Java</span><span class="ttag">Spring Boot</span><span class="ttag">Spring Security</span><span class="ttag">JWT</span><span class="ttag">JPA/Hibernate</span></div>
+      </div>
+      <div class="pc rv d1">
+        <div class="pi">⚡</div>
+        <div class="pt">10+ Full-Stack Projects</div>
+        <div class="pd">A portfolio of full-stack web projects spanning modern frontend and backend technologies, built to master new domains.</div>
+        <ul class="plist">
+          <li>Frontend projects using React.js with responsive design</li>
+          <li>Backend services with Spring Boot and RESTful architecture</li>
+          <li>Database-backed applications with SQL and ORM layers</li>
+          <li>Exploration of Django and Machine Learning pipelines</li>
+          <li>All projects available on GitHub: AyushAhuja2707</li>
+        </ul>
+        <div class="trow"><span class="ttag">React</span><span class="ttag">Spring Boot</span><span class="ttag">Django</span><span class="ttag">Python</span><span class="ttag">SQL</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sl rv">04 — Skills</div>
+    <h2 class="st rv">Technical<br>Stack</h2>
+    <p class="ss rv">Battle-tested technologies from 2 years of production banking systems.</p>
+    <div class="skl">
+      <div class="skc rv">
+        <div class="skh"><span class="ski">☕</span><span class="skt">Backend</span></div>
+        <div class="skbs">
+          <div class="skr"><div class="skm"><span>Java 17</span><span>92%</span></div><div class="sktr"><div class="skf" style="width:92%"></div></div></div>
+          <div class="skr"><div class="skm"><span>Spring Boot</span><span>88%</span></div><div class="sktr"><div class="skf" style="width:88%"></div></div></div>
+          <div class="skr"><div class="skm"><span>Microservices</span><span>82%</span></div><div class="sktr"><div class="skf" style="width:82%"></div></div></div>
+          <div class="skr"><div class="skm"><span>Hibernate / JPA</span><span>84%</span></div><div class="sktr"><div class="skf" style="width:84%"></div></div></div>
+          <div class="skr"><div class="skm"><span>Python</span><span>74%</span></div><div class="sktr"><div class="skf" style="width:74%"></div></div></div>
+        </div>
+      </div>
+      <div class="skc rv d1">
+        <div class="skh"><span class="ski">🗄️</span><span class="skt">Database</span></div>
+        <div class="skbs">
+          <div class="skr"><div class="skm"><span>SQL</span><span>90%</span></div><div class="sktr"><div class="skf" style="width:90%"></div></div></div>
+          <div class="skr"><div class="skm"><span>PL/SQL</span><span>85%</span></div><div class="sktr"><div class="skf" style="width:85%"></div></div></div>
+          <div class="skr"><div class="skm"><span>Query Optimization</span><span>82%</span></div><div class="sktr"><div class="skf" style="width:82%"></div></div></div>
+          <div class="skr"><div class="skm"><span>JDBC</span><span>80%</span></div><div class="sktr"><div class="skf" style="width:80%"></div></div></div>
+        </div>
+      </div>
+      <div class="skc rv d1">
+        <div class="skh"><span class="ski">⚛️</span><span class="skt">Frontend</span></div>
+        <div class="skbs">
+          <div class="skr"><div class="skm"><span>React.js</span><span>78%</span></div><div class="sktr"><div class="skf" style="width:78%"></div></div></div>
+          <div class="skr"><div class="skm"><span>HTML / CSS</span><span>85%</span></div><div class="sktr"><div class="skf" style="width:85%"></div></div></div>
+          <div class="skr"><div class="skm"><span>JavaScript</span><span>76%</span></div><div class="sktr"><div class="skf" style="width:76%"></div></div></div>
+          <div class="skr"><div class="skm"><span>XSL / XSL-FO</span><span>80%</span></div><div class="sktr"><div class="skf" style="width:80%"></div></div></div>
+        </div>
+      </div>
+      <div class="skc rv d2">
+        <div class="skh"><span class="ski">☁️</span><span class="skt">Cloud & DevOps</span></div>
+        <div class="skbs">
+          <div class="skr"><div class="skm"><span>AWS</span><span>70%</span></div><div class="sktr"><div class="skf" style="width:70%"></div></div></div>
+          <div class="skr"><div class="skm"><span>Docker</span><span>75%</span></div><div class="sktr"><div class="skf" style="width:75%"></div></div></div>
+          <div class="skr"><div class="skm"><span>Kubernetes</span><span>65%</span></div><div class="sktr"><div class="skf" style="width:65%"></div></div></div>
+          <div class="skr"><div class="skm"><span>Kafka</span><span>68%</span></div><div class="sktr"><div class="skf" style="width:68%"></div></div></div>
+          <div class="skr"><div class="skm"><span>Linux / Shell</span><span>78%</span></div><div class="sktr"><div class="skf" style="width:78%"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--white);margin:56px 0 24px;letter-spacing:-.5px;" class="rv">Certifications</h3>
+    <div class="certg">
+      <div class="certc rv"><div class="certi">🏆</div><div><div class="certn">Oracle Certified Professional: Java SE 17 Developer</div><div class="certo">Oracle</div></div></div>
+      <div class="certc rv d1"><div class="certi">🥇</div><div><div class="certn">Oracle Certified Java Programmer (OCA, Java SE 8)</div><div class="certo">Oracle</div></div></div>
+      <div class="certc rv d1"><div class="certi">📊</div><div><div class="certn">SQL Certification</div><div class="certo">HackerRank · b9dc862ca5dc</div></div></div>
+      <div class="certc rv d2"><div class="certi">⚙️</div><div><div class="certn">Java Backend Certification</div><div class="certo">GeeksforGeeks · 204276ff1e0f</div></div></div>
+      <div class="certc rv d2"><div class="certi">🐍</div><div><div class="certn">Python Certification</div><div class="certo">HackerRank · 23cf60d69c64</div></div></div>
+      <div class="certc rv d3"><div class="certi">🧠</div><div><div class="certn">Machine Learning · Django</div><div class="certo">Kamal Classes</div></div></div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="alt" id="achievements">
+    <div class="sl rv">05 — Achievements</div>
+    <h2 class="st rv">By The<br>Numbers</h2>
+    <div class="achg" style="margin-bottom:56px;">
+      <div class="achi rv"><div class="achn">2×</div><div class="acht"><strong>Oracle Certified</strong>Java SE 17 Professional + OCA Java SE 8 — the gold standard in enterprise Java.</div></div>
+      <div class="achi rv d1"><div class="achn">300+</div><div class="acht"><strong>DSA Problems Solved</strong>LeetCode, GeeksforGeeks, and competitive platforms — strong algorithmic foundation.</div></div>
+      <div class="achi rv d1"><div class="achn">70%</div><div class="acht"><strong>OTP Latency Reduced</strong>Dual-queue system at Oracle cut authentication delays by 70% under peak loads.</div></div>
+      <div class="achi rv d2"><div class="achn">10+</div><div class="acht"><strong>Full-Stack Projects</strong>End-to-end web development spanning modern frontend and backend technologies.</div></div>
+    </div>
+    <h3 style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--white);margin:0 0 24px;letter-spacing:-.5px;" class="rv">Competitive Programming</h3>
+    <div class="codrow">
+      <div class="codc rv"><div class="codi">🟡</div><div><div class="codp">LeetCode</div><div class="codh">ayush2707</div></div></div>
+      <div class="codc rv d1"><div class="codi">🟢</div><div><div class="codp">GeeksforGeeks</div><div class="codh">micchael20</div></div></div>
+      <div class="codc rv d2"><div class="codi">⬛</div><div><div class="codp">GitHub</div><div class="codh">AyushAhuja2707</div></div></div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="sl rv">06 — Education</div>
+    <h2 class="st rv">Academic<br>Background</h2>
+    <div class="edus">
+      <div class="edur rv">
+        <div class="edui">🎓</div>
         <div>
-          Interests : Problem-Solving , Creativity , Logic and Analytical Thinking , Playing Table Tennis
+          <div class="edud">Master of Science in Computer Science</div>
+          <div class="edus2">Woolf University</div>
+          <div class="edum">2026 – Present · Pursuing</div>
         </div>
+        <div class="edug"><div class="edugn" style="color:var(--accent3)">MS</div><div class="edugl">In Progress</div></div>
+      </div>
+      <div class="edur rv d1">
+        <div class="edui">🏫</div>
+        <div>
+          <div class="edud">Bachelor of Engineering — Computer Engineering</div>
+          <div class="edus2">Thakur College of Engineering & Technology, Mumbai University</div>
+          <div class="edum">2019 – 2023</div>
+        </div>
+        <div class="edug"><div class="edugn">9.78</div><div class="edugl">CGPA / 10</div></div>
+      </div>
+      <div class="edur rv d2">
+        <div class="edui">📚</div>
+        <div>
+          <div class="edud">Higher Secondary Certificate (CBSE)</div>
+          <div class="edus2">Ryan International School</div>
+          <div class="edum">2018 – 2019</div>
+        </div>
+        <div class="edug"><div class="edugn">85%</div><div class="edugl">Score</div></div>
+      </div>
+      <div class="edur rv d3">
+        <div class="edui">🏅</div>
+        <div>
+          <div class="edud">Secondary School Certificate (CBSE)</div>
+          <div class="edus2">Ryan International School</div>
+          <div class="edum">2016 – 2017</div>
+        </div>
+        <div class="edug"><div class="edugn">10</div><div class="edugl">CGPA / 10</div></div>
       </div>
     </div>
   </section>
-  <!-- END IF ABOUT -->
-  <!-- START SUMMARY AND SKILLS  -->
-  <section class="summary" style="padding: 50px;" id="summary">
-    <div class="section_header ">
-      <h1 class="heading">More About Me</h1>
-      <p class="sub_heading">These things tell more about me</p>
-      <div class="heading_border"></div>
-    </div>
-    <div class="flex split-768" style="align-items: center;">
-      <div class="summary-card flex flex-direction-column gap-20" style="width: 50vw">
-        <h1>Summary</h1>
 
-        <div class="border-left relative flex pl-20 flex-direction-column gap-30">
-          <div class="circle"></div>
-          <div class="flex-direction-column gap-20 relative" style="top: -25px">
-            <h2>Ayush Ahuja</h2>
-            <p>
-              Highly motivated and result-driven individual with a strong
-              passion for software development and problem
-            </p>
-            <br>
-            <ul class="flex flex-direction-column gap-20 pl-20">
-              <li>Java Developer</li>
-              <li>Front End Developer</li>
-              <li>SQL Developer</li>
-              <li>Python Developer</li>
-            </ul>
-          </div>
-        </div>
-        <!-- 2nd half -->
-        <h1 style="margin-bottom: 8px; margin-top: 10px">Education</h1>
-        <div class="border-left relative flex pl-20 flex-direction-column gap-30">
-          <div class="circle"></div>
-          <div class="flex-direction-column gap-20 relative" style="top: -25px; margin-bottom: 19px">
-            <h2>Thakur College of Mumbai</h2>
-
-            <ul class="flex flex-direction-column gap-20 pl-20">
-              <li>Computer Engineering (2023 passout)</li>
-              <li>9.78 CGPA</li>
-            </ul>
-          </div>
-        </div>
+  <!-- CONTACT -->
+  <section class="alt" id="contact">
+    <div class="sl rv">07 — Contact</div>
+    <h2 class="st rv">Let's Build<br>Together</h2>
+    <p class="ss rv">Open to freelance projects, consulting, and exciting full-time opportunities.</p>
+    <div class="cw">
+      <div class="citems rv">
+        <div class="ci"><div class="ciic">📍</div><div><div class="cilbl">Location</div><div class="cival">Mumbai, India</div></div></div>
+        <div class="ci"><div class="ciic">✉️</div><div><div class="cilbl">Email</div><div class="cival"><a href="mailto:ayushahuja200@gmail.com">ayushahuja200@gmail.com</a></div></div></div>
+        <div class="ci"><div class="ciic">📱</div><div><div class="cilbl">Phone</div><div class="cival"><a href="tel:+919867968972">+91 9867968972</a></div></div></div>
+        <div class="ci"><div class="ciic">💼</div><div><div class="cilbl">Current Role</div><div class="cival">Software Developer @ Oracle Financial Services</div></div></div>
+        <div class="ci"><div class="ciic">🐙</div><div><div class="cilbl">GitHub</div><div class="cival"><a href="https://github.com/AyushAhuja2707" target="_blank">AyushAhuja2707</a></div></div></div>
+        <div class="ci"><div class="ciic">🟡</div><div><div class="cilbl">LeetCode</div><div class="cival"><a href="https://leetcode.com/ayush2707" target="_blank">ayush2707</a></div></div></div>
       </div>
-
-      <div class="" style="width: 50vw">
-        <div class="summary-card flex flex-direction-column gap-20" style="width: 50vw">
-          <h1>Professional Experience</h1>
-
-          <div class="border-left relative flex pl-20 flex-direction-column gap-30">
-            <div class="circle"></div>
-            <div class="flex-direction-column gap-20 relative" style="top: -25px">
-              <h2>Oracle</h2>
-              <br>
-              <p>
-                <b>Project : HDFC Netbanking Application </b>
-              </p>
-              <br>
-              <ul class="flex flex-direction-column gap-20 pl-20">
-                <li>
-                  Developed and deployed scalable REST APIs for HDFC Netbanking, Flexcube, and OBP modules,
-                  covering account management, transaction history, fund transfers, and balance inquiry
-                </li>
-                <li>
-                  Built FDOD Key Fact Statement (KFS) module using XSL-FO templates to dynamically generate
-                  RBI-compliant customer statements
-                </li>
-                <li>
-                  Optimized authentication workflows by implementing a dual-queue OTP management system,
-                  reducing delays by 70% and enhancing system scalability under peak loads
-                </li>
-                <li>
-                  Implemented a transaction rate limiter for TCS module in Netbanking, mitigating fraud risks
-                  from high-frequency requests and ensuring secure, compliant, and fair usage
-                </li>
-                <li>
-                  Integrated CCIL services using JWT-based authentication, reducing redundant API calls
-                  and improving system throughput. Designed a 24-hour JVM token strategy to optimize
-                  resource utilization while maintaining security and compliance
-                  .
-                </li>
-
-                <li>
-                  TunedSQL/PLSQLqueries andbackend Java processes, reducing API response times and improving
-                  scalability for high-volume transactions
-                </li>
-
-                <li>
-                  Assisted clients with production monitoring, RCA reporting, and compliance-related queries, in
-                  cluding support for RBI-mandated audits
-                </li>
-
-                <li>
-                  Collaborated with cross-functional teams (frontend, database, infrastructure) to deliver defect-free
-                  UAT and smooth production deployments
-                </li>
-                <li>
-                  Tech Stack: Java, SQL, PL/SQL, XSL, with a focus on banking
-                  applications.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <div class="cf2 rv d1">
+        <div><label>Your Name</label><input type="text" placeholder="Jane Smith" /></div>
+        <div><label>Email Address</label><input type="email" placeholder="jane@example.com" /></div>
+        <div><label>Message</label><textarea placeholder="Tell me about your project or opportunity…"></textarea></div>
+        <button class="cfbtn">Send Message →</button>
       </div>
     </div>
   </section>
-  <!-- end of summary -->
 
-  <section class="contact " style="margin-top: 0.8%;" id="contact">
-    <div class="section_header">
-      <h1 class="heading">Contact Me</h1>
-      <p class="sub_heading">You can contact me with</p>
-      <div class="heading_border"></div>
+  <footer>
+    <div class="flogo">Ayush<em>.</em></div>
+    <div class="fmid">© 2026 Ayush Ahuja · Built with precision in Mumbai</div>
+    <div class="socrow">
+      <a href="https://github.com/AyushAhuja2707" class="soc" target="_blank">🐙</a>
+      <a href="https://leetcode.com/ayush2707" class="soc" target="_blank">🟡</a>
+      <a href="mailto:ayushahuja200@gmail.com" class="soc">✉️</a>
     </div>
+  </footer>
 
-    <div class="flex items-center">
-      <!-- left -->
-      <div class="p-40" style="width: 50vw ">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15068.542375434692!2d72.96451365470588!3d19.232921472249085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b95f5529e6c3%3A0x2327712f1ed47402!2sDosti%20Imperia!5e0!3m2!1sen!2sin!4v1734045351438!5m2!1sen!2sin"
-          class="w-full" style="border:0; height: 400px; border: 2px solid black;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-      <!-- right -->
-      <div class="form_container " style="width: 50vw;">
-        <form action="contact.html">
-          <div class="form_input">
-            <label for="name">Name</label>
-            <input type="text" />
-          </div>
-          <div class="form_input">
-            <label for="name">Email</label>
-            <input type="text" />
-          </div>
-          <div class="form_input">
-            <label for="name">Message</label>
-            <textarea name="" id="" cols="30" rows="10" fixed></textarea>
-          </div>
+  <script>
+    // Cursor
+    const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+    (function loop(){cur.style.left=mx+'px';cur.style.top=my+'px';rx+=(mx-rx)*.11;ry+=(my-ry)*.11;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+    document.querySelectorAll('a,button,.pc,.skc,.achi,.certc,.codc,.edur').forEach(el=>{
+      el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+      el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+    });
 
-          <div class="flex  p-20 gap-10" style="justify-content: center;">
-            <button class="success-button button " type="submit">
-              Send Message
-            </button>
-            <button class="reset-button button" type="reset">Reset</button>
-          </div>
-        </form>
-      </div>
-    </div>
+    // Nav shrink
+    const nav=document.getElementById('nav');
+    window.addEventListener('scroll',()=>nav.classList.toggle('sh',scrollY>60));
 
+    // Reveal
+    const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');}),{threshold:.1});
+    document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
 
-    <section id="footer">
-      <footer>
-        <!-- Footer content goes here -->
-        <p> © 2025 My Website. All rights reserved. </p>
-        <p> Contact: ayushahuja200@gmail.com </p>
-
-      </footer>
-
-
-    </section>
-    </div>
-    <script src="js/first.js"></script>
+    // Skill bars
+    const so=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.querySelectorAll('.skf').forEach(b=>b.classList.add('on'));}),{threshold:.3});
+    document.querySelectorAll('.skc').forEach(el=>so.observe(el));
+  </script>
 </body>
-
 </html>
