@@ -1,551 +1,282 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ayush Ahuja — Java Backend Engineer @ Oracle</title>
-  <meta name="description" content="Ayush Ahuja — Java Backend Developer at Oracle Financial Services. Spring Boot, Microservices, AWS, React." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayush Ahuja | Java Backend Engineer</title>
+  <meta name="description" content="Ayush Ahuja is a Java Backend Engineer at Oracle Financial Services focused on Spring Boot, microservices, and scalable banking systems.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #07070d;
-      --bg2: #0c0c15;
-      --surface: #12121e;
-      --card: #0f0f1a;
-      --border: rgba(255,255,255,0.06);
-      --border2: rgba(255,255,255,0.12);
-      --accent: #7c6fff;
-      --accent2: #ff6b9d;
-      --accent3: #38f9a4;
-      --accent4: #ffd166;
-      --text: #ddddf0;
-      --muted: #6a6a96;
-      --muted2: #9090bb;
-      --white: #ffffff;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; overflow-x: hidden; cursor: none; }
-
-    /* CURSOR */
-    #cur { position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:exclusion;transition:width .2s,height .2s; }
-    #cur-ring { position:fixed;width:36px;height:36px;border:1px solid rgba(124,111,255,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s; }
-    body.hov #cur { width:18px;height:18px; }
-    body.hov #cur-ring { width:56px;height:56px;border-color:rgba(124,111,255,.7); }
-
-    /* NAV */
-    nav { position:fixed;top:0;left:0;right:0;z-index:1000;padding:22px 64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,7,13,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:padding .3s; }
-    nav.sh { padding:14px 64px; }
-    .nav-logo { font-family:'Syne',sans-serif;font-weight:800;font-size:19px;color:var(--white);text-decoration:none;letter-spacing:-.5px; }
-    .nav-logo em { color:var(--accent);font-style:normal; }
-    .nav-links { display:flex;gap:36px;list-style:none; }
-    .nav-links a { color:var(--muted);text-decoration:none;font-size:12px;letter-spacing:.08em;transition:color .2s; }
-    .nav-links a:hover { color:var(--white); }
-    .nav-btn { background:transparent;border:1px solid rgba(124,111,255,.4);color:var(--accent);padding:9px 22px;border-radius:6px;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;text-decoration:none;transition:all .2s; }
-    .nav-btn:hover { background:var(--accent);color:#fff;box-shadow:0 0 30px rgba(124,111,255,.4); }
-
-    /* HERO */
-    .hero { min-height:100vh;position:relative;display:flex;align-items:center;padding:120px 64px 100px;overflow:hidden; }
-    .hero-grid { position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(124,111,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(124,111,255,.035) 1px,transparent 1px);background-size:72px 72px; }
-    .orb1 { position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(124,111,255,.13) 0%,transparent 65%);top:-200px;right:-300px;pointer-events:none;animation:drift 12s ease-in-out infinite alternate; }
-    .orb2 { position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,157,.07) 0%,transparent 65%);bottom:-100px;left:-150px;pointer-events:none;animation:drift 15s 2s ease-in-out infinite alternate-reverse; }
-    @keyframes drift { 0%{transform:translate(0,0)} 100%{transform:translate(30px,-40px)} }
-    .hero-c { position:relative;z-index:1; }
-    .chip { display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(124,111,255,.3);background:rgba(124,111,255,.08);padding:6px 16px;border-radius:100px;font-size:11px;color:var(--accent);letter-spacing:.1em;margin-bottom:40px;animation:fadeUp .8s ease both; }
-    .chip-dot { width:6px;height:6px;border-radius:50%;background:var(--accent3);animation:blink 2s infinite; }
-    @keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
-    h1.hh { font-family:'Syne',sans-serif;font-size:clamp(60px,9vw,120px);font-weight:800;letter-spacing:-4px;line-height:.92;color:var(--white);animation:fadeUp .8s .1s ease both; }
-    h1.hh .acc { color:var(--accent); }
-    .hero-tag { font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(20px,2.5vw,32px);color:var(--muted2);margin:20px 0 32px;animation:fadeUp .8s .2s ease both; }
-    .hero-desc { font-size:14px;line-height:1.9;color:var(--muted);max-width:520px;margin-bottom:48px;animation:fadeUp .8s .3s ease both; }
-    .hero-ctas { display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .4s ease both; }
-    .btn-p { background:var(--accent);color:#fff;padding:14px 32px;border-radius:7px;text-decoration:none;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;transition:all .25s; }
-    .btn-p:hover { transform:translateY(-3px);box-shadow:0 20px 50px rgba(124,111,255,.45); }
-    .btn-g { border:1px solid var(--border2);color:var(--muted2);padding:14px 32px;border-radius:7px;text-decoration:none;font-family:'Syne',sans-serif;font-weight:600;font-size:13px;letter-spacing:.04em;transition:all .25s; }
-    .btn-g:hover { border-color:var(--accent);color:var(--accent); }
-    .hero-side { position:absolute;right:64px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:40px;z-index:1;animation:fadeLeft .8s .5s ease both; }
-    .hs-n { font-family:'Syne',sans-serif;font-size:44px;font-weight:800;color:var(--white);line-height:1; }
-    .hs-n span { color:var(--accent); }
-    .hs-l { font-size:10px;letter-spacing:.14em;color:var(--muted);margin-top:4px;text-transform:uppercase; }
-    .scroll-h { position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:10px;letter-spacing:.14em;color:var(--muted);animation:fadeUp 1s .9s ease both; }
-    .scroll-b { width:1px;height:56px;background:linear-gradient(to bottom,var(--accent),transparent);animation:pbar 2s ease infinite; }
-    @keyframes pbar { 0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.01%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom} }
-
-    /* SECTION */
-    section { padding:110px 64px; }
-    section.alt { background:var(--bg2); }
-    .sl { display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:18px; }
-    .sl::after { content:'';width:48px;height:1px;background:var(--accent); }
-    h2.st { font-family:'Syne',sans-serif;font-size:clamp(34px,5vw,64px);font-weight:800;letter-spacing:-2px;color:var(--white);line-height:1;margin-bottom:14px; }
-    .ss { font-size:14px;color:var(--muted);line-height:1.8;max-width:480px;margin-bottom:64px; }
-
-    /* ABOUT */
-    .about-g { display:grid;grid-template-columns:360px 1fr;gap:80px;align-items:start; }
-    .pf { position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:var(--surface); }
-    .pf img { width:100%;height:100%;object-fit:cover;filter:saturate(.85);display:block; }
-    .pf::after { content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(124,111,255,.2) 0%,transparent 55%); }
-    .pb { position:absolute;inset:-14px -14px 14px 14px;border:1px solid rgba(124,111,255,.25);border-radius:16px;z-index:-1; }
-    .ob { position:absolute;bottom:-18px;right:-18px;background:linear-gradient(135deg,#e31c00,#c11000);border-radius:12px;padding:18px 22px;z-index:2; }
-    .ob-t { font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:#fff; }
-    .ob-s { font-size:10px;color:rgba(255,255,255,.75);letter-spacing:.05em; }
-    .at p { font-size:14px;line-height:1.95;color:var(--muted);margin-bottom:28px; }
-    .at p strong { color:var(--text); }
-    .dg { display:grid;grid-template-columns:1fr 1fr;gap:18px 32px;margin-bottom:36px; }
-    .dk { font-size:9px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:3px; }
-    .dv { font-size:13px;color:var(--text); }
-    .pills { display:flex;flex-wrap:wrap;gap:8px; }
-    .pill { background:rgba(124,111,255,.09);border:1px solid rgba(124,111,255,.22);color:var(--accent);padding:5px 13px;border-radius:4px;font-size:11px; }
-
-    /* EXPERIENCE */
-    .tl { max-width:860px; }
-    .ti { display:grid;grid-template-columns:180px 1fr;gap:0;padding:52px 0;border-bottom:1px solid var(--border);position:relative; }
-    .ti::before { content:'';position:absolute;left:178px;top:0;bottom:0;width:1px;background:var(--border); }
-    .tdot { position:absolute;left:172px;top:58px;width:14px;height:14px;background:var(--accent);border-radius:50%;box-shadow:0 0 22px var(--accent); }
-    .tl-l { padding-right:36px; }
-    .td { font-size:11px;color:var(--muted);letter-spacing:.05em;margin-bottom:10px; }
-    .tc { font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--white); }
-    .tr { font-size:12px;color:var(--accent);margin-top:4px; }
-    .tloc { font-size:11px;color:var(--muted);margin-top:4px; }
-    .tl-r { padding-left:44px; }
-    .pbadge { display:inline-flex;align-items:center;gap:6px;background:rgba(56,249,164,.08);border:1px solid rgba(56,249,164,.22);color:var(--accent3);padding:4px 12px;border-radius:4px;font-size:10px;letter-spacing:.07em;margin-bottom:20px; }
-    .tlist { list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:24px; }
-    .tlist li { font-size:13px;color:var(--muted);line-height:1.75;padding-left:22px;position:relative; }
-    .tlist li::before { content:'›';position:absolute;left:0;color:var(--accent);font-size:16px;line-height:1.5; }
-    .tlist li strong { color:var(--text); }
-    .trow { display:flex;flex-wrap:wrap;gap:7px; }
-    .ttag { background:var(--surface);border:1px solid var(--border);color:var(--muted);padding:3px 11px;border-radius:4px;font-size:10px;letter-spacing:.06em; }
-
-    /* PROJECTS */
-    .pg { display:grid;grid-template-columns:1fr 1fr;gap:24px; }
-    .pc { background:var(--card);border:1px solid var(--border);border-radius:14px;padding:36px;transition:border-color .3s,transform .3s;position:relative;overflow:hidden; }
-    .pc::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .3s; }
-    .pc:hover { border-color:rgba(124,111,255,.3);transform:translateY(-4px); }
-    .pc:hover::before { transform:scaleX(1); }
-    .pi { font-size:32px;margin-bottom:20px; }
-    .pt { font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--white);margin-bottom:12px; }
-    .pd { font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:20px; }
-    .plist { list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:20px; }
-    .plist li { font-size:12px;color:var(--muted);padding-left:16px;position:relative; }
-    .plist li::before { content:'·';position:absolute;left:0;color:var(--accent);font-size:18px;line-height:1; }
-
-    /* SKILLS */
-    .skl { display:grid;grid-template-columns:repeat(2,1fr);gap:24px; }
-    .skc { background:var(--card);border:1px solid var(--border);border-radius:14px;padding:32px;transition:border-color .3s,transform .3s; }
-    .skc:hover { border-color:rgba(124,111,255,.3);transform:translateY(-3px); }
-    .skh { display:flex;align-items:center;gap:12px;margin-bottom:24px; }
-    .ski { font-size:22px; }
-    .skt { font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--white); }
-    .skbs { display:flex;flex-direction:column;gap:14px; }
-    .skr { display:flex;flex-direction:column;gap:6px; }
-    .skm { display:flex;justify-content:space-between;font-size:11px;color:var(--muted); }
-    .sktr { height:3px;background:var(--surface);border-radius:2px;overflow:hidden; }
-    .skf { height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform 1.1s cubic-bezier(.23,1,.32,1); }
-    .skf.on { transform:scaleX(1); }
-    .certg { display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px; }
-    .certc { background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 24px;display:flex;gap:14px;align-items:flex-start;transition:border-color .3s; }
-    .certc:hover { border-color:rgba(124,111,255,.3); }
-    .certi { font-size:22px;flex-shrink:0; }
-    .certn { font-size:13px;color:var(--text);font-weight:500;line-height:1.4;margin-bottom:4px; }
-    .certo { font-size:11px;color:var(--muted); }
-
-    /* ACHIEVEMENTS */
-    .achg { display:grid;grid-template-columns:repeat(2,1fr);gap:20px; }
-    .achi { background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 32px;display:flex;gap:18px;align-items:flex-start;transition:border-color .3s; }
-    .achi:hover { border-color:rgba(124,111,255,.3); }
-    .achn { font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:var(--accent);line-height:1;flex-shrink:0;min-width:80px; }
-    .acht { font-size:13px;color:var(--muted);line-height:1.7;padding-top:6px; }
-    .acht strong { color:var(--text);display:block;margin-bottom:4px;font-size:14px; }
-    .codrow { display:flex;gap:20px;flex-wrap:wrap; }
-    .codc { flex:1;min-width:200px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;display:flex;align-items:center;gap:20px;transition:border-color .3s,transform .3s; }
-    .codc:hover { border-color:rgba(124,111,255,.3);transform:translateY(-3px); }
-    .codp { font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--white); }
-    .codh { font-size:12px;color:var(--accent);margin-top:4px; }
-    .codi { font-size:30px; }
-
-    /* EDUCATION */
-    .edus { display:flex;flex-direction:column;gap:20px;max-width:800px; }
-    .edur { background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 36px;display:flex;align-items:center;gap:28px;transition:border-color .3s; }
-    .edur:hover { border-color:rgba(124,111,255,.3); }
-    .edui { font-size:28px;flex-shrink:0;width:52px; }
-    .edud { font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--white);margin-bottom:4px; }
-    .edus2 { font-size:13px;color:var(--accent);margin-bottom:3px; }
-    .edum { font-size:11px;color:var(--muted); }
-    .edug { margin-left:auto;text-align:right; }
-    .edugn { font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--white);line-height:1; }
-    .edugl { font-size:9px;letter-spacing:.1em;color:var(--muted);margin-top:3px;text-transform:uppercase; }
-
-    /* CONTACT */
-    .cw { display:grid;grid-template-columns:1fr 1fr;gap:80px; }
-    .citems { display:flex;flex-direction:column;gap:28px; }
-    .ci { display:flex;gap:18px;align-items:center; }
-    .ciic { width:50px;height:50px;border:1px solid rgba(124,111,255,.22);background:rgba(124,111,255,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0; }
-    .cilbl { font-size:9px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:3px; }
-    .cival { font-size:14px;color:var(--text); }
-    .cival a { color:inherit;text-decoration:none; }
-    .cival a:hover { color:var(--accent); }
-    .cf2 { display:flex;flex-direction:column;gap:18px; }
-    .cf2 label { font-size:9px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:6px; }
-    .cf2 input,.cf2 textarea { width:100%;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:13px 16px;color:var(--text);font-family:'DM Mono',monospace;font-size:13px;outline:none;transition:border-color .2s; }
-    .cf2 input:focus,.cf2 textarea:focus { border-color:var(--accent); }
-    .cf2 textarea { resize:vertical;min-height:120px; }
-    .cfbtn { background:var(--accent);color:#fff;border:none;padding:15px 34px;border-radius:8px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;align-self:flex-start; }
-    .cfbtn:hover { transform:translateY(-2px);box-shadow:0 16px 40px rgba(124,111,255,.4); }
-
-    /* FOOTER */
-    footer { padding:36px 64px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px; }
-    .flogo { font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--white); }
-    .flogo em { color:var(--accent);font-style:normal; }
-    .fmid { font-size:12px;color:var(--muted); }
-    .socrow { display:flex;gap:12px; }
-    .soc { width:36px;height:36px;border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;text-decoration:none;transition:border-color .2s,transform .2s; }
-    .soc:hover { border-color:var(--accent);transform:translateY(-2px); }
-
-    /* REVEAL */
-    .rv { opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease; }
-    .rv.in { opacity:1;transform:none; }
-    .rv.d1{transition-delay:.1s} .rv.d2{transition-delay:.2s} .rv.d3{transition-delay:.3s}
-    @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
-    @keyframes fadeLeft { from{opacity:0;transform:translateX(28px)} to{opacity:1;transform:none} }
-
-    /* RESPONSIVE */
-    @media(max-width:900px) {
-      nav{padding:16px 24px} nav.sh{padding:12px 24px} .nav-links,.nav-btn{display:none}
-      .hero{padding:100px 24px 80px} .hero-side{display:none}
-      section{padding:80px 24px}
-      .about-g{grid-template-columns:1fr}
-      .pf{max-width:320px}
-      .ti{grid-template-columns:1fr}
-      .ti::before,.tdot{display:none}
-      .tl-r{padding-left:0;margin-top:20px}
-      .pg,.skl,.achg,.certg,.cw{grid-template-columns:1fr}
-      .edur{flex-direction:column;text-align:center;align-items:center}
-      .edug{margin-left:0;text-align:center}
-      footer{flex-direction:column;text-align:center}
-    }
+    :root{--bg:#f5f7fb;--card:#fff;--soft:#edf2fa;--text:#15243b;--muted:#5f6e86;--accent:#1d4ed8;--line:rgba(21,36,59,.1);--shadow:0 20px 50px rgba(21,36,59,.08)}
+    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{font-family:"DM Mono",monospace;background:linear-gradient(180deg,#f8fbff,#f5f7fb);color:var(--text);line-height:1.7}
+    a{color:inherit} img{max-width:100%;display:block} .wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
+    nav{position:sticky;top:0;z-index:10;background:rgba(248,251,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0}.brand{font:800 1.2rem "Syne",sans-serif;text-decoration:none}.brand span{color:var(--accent)}
+    .links{display:flex;gap:22px;list-style:none;font-size:.8rem;color:var(--muted)} .links a{text-decoration:none}
+    .resume-btn,.cta,.ghost{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;text-decoration:none;font-family:"Syne",sans-serif;font-size:.82rem;padding:12px 20px;transition:.2s}
+    .resume-btn,.cta{background:var(--accent);border:1px solid var(--accent);color:#fff}.ghost{background:#fff;border:1px solid var(--line);color:var(--text)} .resume-btn:hover,.cta:hover{filter:brightness(.95)} .ghost:hover{border-color:var(--accent);color:var(--accent)}
+    .mobile-note{display:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;font-size:.72rem;color:var(--muted)}
+    section{padding:76px 0}.hero{padding:54px 0 42px}.hero-box,.card{background:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.65);box-shadow:var(--shadow);border-radius:28px}
+    .hero-box{padding:42px;display:grid;grid-template-columns:1.25fr .95fr;gap:28px;align-items:center}.eyebrow,.label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px}
+    .eyebrow:before,.label:before{content:"";width:30px;height:1px;background:currentColor} h1,h2,.title{font-family:"Syne",sans-serif;letter-spacing:-.04em}
+    h1{font-size:clamp(3rem,7vw,5.6rem);line-height:.95;margin-top:18px} h1 span{color:var(--accent)} .role{margin-top:16px;color:var(--muted);font-size:1.08rem}
+    .copy,.section-copy,.card-copy{color:var(--muted);font-size:.9rem}.copy{margin-top:18px;max-width:58ch}.hero-actions{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.stat{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}.stat strong{display:block;font:800 2rem "Syne",sans-serif}
+    .stat span{display:block;margin-top:8px;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.08em}
+    .alt{background:rgba(255,255,255,.45);border-top:1px solid rgba(255,255,255,.65);border-bottom:1px solid rgba(255,255,255,.65)}
+    .section-head{margin-bottom:28px} h2{font-size:clamp(2rem,4vw,3.4rem);line-height:1;margin-top:14px}.section-copy{margin-top:12px;max-width:68ch}
+    .about,.grid-2,.achievements,.contacts{display:grid;gap:18px}.about{grid-template-columns:320px 1fr}.grid-2,.contacts{grid-template-columns:repeat(2,1fr)}.achievements{grid-template-columns:repeat(4,1fr)}
+    .card{padding:26px}.photo{overflow:hidden;padding:0}.photo img{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--soft)} .meta{padding:18px 20px;border-top:1px solid var(--line)}
+    .meta strong{display:block;font:700 1rem "Syne",sans-serif}.meta span{font-size:.82rem;color:var(--muted)} .info{margin-top:22px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .info div{background:var(--soft);border:1px solid rgba(21,36,59,.06);border-radius:14px;padding:14px} .info small{display:block;color:var(--accent);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+    .badges,.tags{display:flex;gap:10px;flex-wrap:wrap}.badges{margin-top:18px}.badges span,.tags span{border-radius:999px;padding:7px 11px;font-size:.72rem}.badges span{background:#e8f0ff;color:var(--accent);border:1px solid rgba(29,78,216,.12)} .tags span{background:var(--soft);color:var(--muted);border:1px solid rgba(21,36,59,.08)}
+    .item + .item{margin-top:16px}.top{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px}.title{font-size:1.14rem}.sub{color:var(--accent);font-size:.82rem}.date{font-size:.78rem;color:var(--muted)}
+    ul.clean{list-style:none;display:grid;gap:10px;color:var(--muted);font-size:.86rem} ul.clean li{position:relative;padding-left:16px} ul.clean li:before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+    .skill{display:grid;gap:14px}.row{display:grid;gap:6px}.row div{display:flex;justify-content:space-between;font-size:.76rem;color:var(--muted)} .track{height:8px;background:var(--soft);border-radius:999px;overflow:hidden} .fill{height:100%;background:linear-gradient(90deg,var(--accent),#60a5fa);border-radius:999px}
+    .number{font:800 2rem "Syne",sans-serif;color:var(--accent);line-height:1}.contact-list{list-style:none;display:grid;gap:10px;color:var(--muted);font-size:.86rem}.contact-list a{text-decoration:none;color:var(--accent)}
+    footer{padding:28px 0 40px;color:var(--muted);font-size:.8rem}.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px}.foot-links{display:flex;gap:14px;flex-wrap:wrap}.foot-links a{text-decoration:none}
+    @media (max-width:960px){.hero-box,.about,.grid-2,.achievements,.contacts{grid-template-columns:1fr}.links{display:none}.mobile-note{display:none}.info{grid-template-columns:1fr}}
+    @media (max-width:640px){section{padding:64px 0}.hero{padding-top:32px}.hero-box,.card{padding:22px}.photo{padding:0}.hero-actions{flex-direction:column}.cta,.ghost{width:100%}}
   </style>
 </head>
 <body>
-  <div id="cur"></div>
-  <div id="cur-ring"></div>
-
-  <nav id="nav">
-    <a href="#home" class="nav-logo">Ayush<em>.</em></a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="Ayush_Ahuja_Resume.pdf" class="nav-btn" download>Download CV</a>
+  <nav>
+    <div class="wrap nav">
+      <a class="brand" href="#home">Ayush<span>.</span></a>
+      <ul class="links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="resume-btn" href="Ayush_Ahuja_Resume.pdf" download>Download Resume</a>
+      <span class="mobile-note">Resume download is disabled on mobile</span>
+    </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-grid"></div>
-    <div class="orb1"></div>
-    <div class="orb2"></div>
-    <div class="hero-c">
-      <div class="chip"><div class="chip-dot"></div>Available for Freelance · Mumbai, India</div>
-      <h1 class="hh">Ayush<br><span class="acc">Ahuja</span></h1>
-      <p class="hero-tag">Java Backend Engineer</p>
-      <p class="hero-desc">Oracle Financial Services engineer building enterprise-grade banking infrastructure. 2 years delivering scalable microservices for HDFC Netbanking — Java 17, Spring Boot, and beyond.</p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn-p">Let's Talk</a>
-        <a href="#experience" class="btn-g">View Work →</a>
-      </div>
-    </div>
-    <div class="hero-side">
-      <div><div class="hs-n">2<span>+</span></div><div class="hs-l">Years at Oracle</div></div>
-      <div><div class="hs-n">70<span>%</span></div><div class="hs-l">Faster OTP Auth</div></div>
-      <div><div class="hs-n">300<span>+</span></div><div class="hs-l">DSA Problems</div></div>
-      <div><div class="hs-n">9.78</div><div class="hs-l">CGPA</div></div>
-    </div>
-    <div class="scroll-h"><div class="scroll-b"></div>scroll</div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="alt" id="about">
-    <div class="sl rv">01 — About</div>
-    <div class="about-g">
-      <div class="rv">
-        <div class="pf">
-          <img src="images/Ayush_Ahuja_Photo.jpg" alt="Ayush Ahuja" onerror="this.parentElement.style.background='linear-gradient(145deg,#1a1a2e,#16213e)';this.style.display='none';" />
-          <div class="pb"></div>
-          <div class="ob"><div class="ob-t">Oracle</div><div class="ob-s">FINANCIAL SERVICES</div></div>
-        </div>
-      </div>
-      <div class="at">
-        <div class="sl rv">Who I Am</div>
-        <h2 class="st rv">Backend<br>Engineer</h2>
-        <p class="rv">I'm a <strong>Java Backend Developer</strong> at Oracle Financial Services with 2 years of experience building enterprise-grade banking applications. My work powers HDFC Netbanking — one of India's largest digital banking platforms.</p>
-        <p class="rv">Beyond my day job, I'm an <strong>Oracle Certified Java SE 17 Professional</strong>, an active competitive programmer with 300+ DSA solutions, and a full-stack builder who loves shipping polished products end-to-end.</p>
-        <div class="dg rv">
-          <div><span class="dk">Email</span><span class="dv">ayushahuja200@gmail.com</span></div>
-          <div><span class="dk">Phone</span><span class="dv">+91 9867968972</span></div>
-          <div><span class="dk">Location</span><span class="dv">Mumbai, India</span></div>
-          <div><span class="dk">Freelance</span><span class="dv" style="color:var(--accent3)">✓ Available</span></div>
-          <div><span class="dk">Languages</span><span class="dv">English · Hindi</span></div>
-          <div><span class="dk">GitHub</span><span class="dv">AyushAhuja2707</span></div>
-        </div>
-        <div class="pills rv">
-          <span class="pill">Problem-Solving</span>
-          <span class="pill">Analytical Thinking</span>
-          <span class="pill">Creativity</span>
-          <span class="pill">Table Tennis 🏓</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="sl rv">02 — Experience</div>
-    <h2 class="st rv">Where I've<br>Made Impact</h2>
-    <p class="ss rv">Building scalable, compliant banking systems trusted by millions of users.</p>
-    <div class="tl">
-      <div class="ti rv">
-        <div class="tdot"></div>
-        <div class="tl-l">
-          <div class="td">Jun 2023 — Present</div>
-          <div class="tc">Oracle</div>
-          <div class="tr">Software Developer</div>
-          <div class="tloc">Mumbai, India</div>
-        </div>
-        <div class="tl-r">
-          <div class="pbadge">🏦 HDFC Netbanking · Flexcube · OBP</div>
-          <ul class="tlist">
-            <li>Developed and deployed <strong>scalable REST APIs</strong> for HDFC Netbanking covering account management, transaction history, fund transfers, and balance inquiry</li>
-            <li>Built <strong>SafeBox Hold Removal API</strong> to securely release account holds with proper validations, reducing manual intervention and improving operational efficiency</li>
-            <li>Built <strong>TD Account Opening APIs</strong> enabling seamless account creation workflows integrated with core banking systems</li>
-            <li>Implemented <strong>dual-queue OTP management system</strong> — reduced authentication delays by <strong>70%</strong> and improved scalability under peak loads</li>
-            <li>Implemented <strong>transaction rate limiter</strong> for TCS module, mitigating fraud risks from high-frequency requests</li>
-            <li>Integrated <strong>CCIL services via JWT authentication</strong>; designed a 24-hour JVM token strategy with auto-refresh to minimize redundant auth calls</li>
-            <li>Built <strong>FDOD Key Fact Statement module</strong> using XSL-FO templates for RBI-compliant dynamic customer statements</li>
-            <li>Tuned <strong>SQL/PL-SQL queries</strong> and backend Java processes for high-volume transaction scalability</li>
-            <li>Supported clients with <strong>production monitoring, RCA reporting</strong>, and RBI-mandated audit compliance</li>
-            <li>Collaborated across frontend, database, and infrastructure teams for <strong>defect-free UAT</strong> and smooth deployments</li>
-          </ul>
-          <div class="trow">
-            <span class="ttag">Java 17</span><span class="ttag">Spring Boot</span><span class="ttag">SQL</span><span class="ttag">PL/SQL</span><span class="ttag">XSL-FO</span><span class="ttag">JWT</span><span class="ttag">REST APIs</span><span class="ttag">Linux</span><span class="ttag">Docker</span><span class="ttag">Git</span>
+  <main id="home">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-box">
+          <div>
+            <div class="eyebrow">Available for freelance and full-time roles</div>
+            <h1>Ayush <span>Ahuja</span></h1>
+            <p class="role">Java Backend Engineer at Oracle Financial Services</p>
+            <p class="copy">I build reliable banking systems with Java, Spring Boot, SQL, and microservices. Over the last 2 years, I have contributed to HDFC Netbanking platforms with a strong focus on performance, compliance, and production stability.</p>
+            <div class="hero-actions">
+              <a class="cta" href="#contact">Contact Me</a>
+              <a class="ghost" href="#experience">View Experience</a>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>2+</strong><span>Years at Oracle</span></div>
+            <div class="stat"><strong>70%</strong><span>Lower OTP latency</span></div>
+            <div class="stat"><strong>300+</strong><span>DSA problems solved</span></div>
+            <div class="stat"><strong>9.78</strong><span>Engineering CGPA</span></div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROJECTS -->
-  <section class="alt" id="projects">
-    <div class="sl rv">03 — Projects</div>
-    <h2 class="st rv">Personal<br>Builds</h2>
-    <p class="ss rv">Side projects that sharpen full-stack skills beyond the day job.</p>
-    <div class="pg">
-      <div class="pc rv">
-        <div class="pi">🏦</div>
-        <div class="pt">Netbanking Application</div>
-        <div class="pd">A full-stack banking simulation built from scratch — authentication, fund transfers, transaction history, and beneficiary management.</div>
-        <ul class="plist">
-          <li>REST APIs for account summary, fund transfer simulation, and transaction history</li>
-          <li>Authentication & authorization via Spring Security + JWT</li>
-          <li>Beneficiary management — add, delete, verify</li>
-          <li>JPA/Hibernate integration with optimized queries</li>
-          <li>Transaction logging & exception handling for secure processing</li>
-          <li>Clean layered architecture: Controller → Service → Repository</li>
-        </ul>
-        <div class="trow"><span class="ttag">Java</span><span class="ttag">Spring Boot</span><span class="ttag">Spring Security</span><span class="ttag">JWT</span><span class="ttag">JPA/Hibernate</span></div>
+    <section class="alt" id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">About</div>
+          <h2>Backend engineer focused on production quality</h2>
+          <p class="section-copy">My work centers on scalable APIs, banking workflows, and dependable system behavior. I enjoy building services that are easy to maintain and strong under load.</p>
+        </div>
+        <div class="about">
+          <article class="card photo">
+            <img src="images/Ayush_Ahuja_Photo.png" alt="Ayush Ahuja" onerror="this.src='images/Ayush_Ahuja_Photo1.png'">
+            <div class="meta"><strong>Ayush Ahuja</strong><span>Mumbai, India</span></div>
+          </article>
+          <article class="card">
+            <p class="card-copy">I am a Java Backend Developer at Oracle Financial Services, working on enterprise banking applications that support large-scale digital operations. My day-to-day work includes API development, integrations, query tuning, production support, and compliance-driven delivery.</p>
+            <p class="card-copy" style="margin-top:16px;">Alongside my work, I continue to strengthen my engineering foundation through competitive programming, certifications, and hands-on full-stack projects.</p>
+            <div class="info">
+              <div><small>Email</small><span>ayushahuja200@gmail.com</span></div>
+              <div><small>Phone</small><span>+91 9867968972</span></div>
+              <div><small>Location</small><span>Mumbai, India</span></div>
+              <div><small>Freelance</small><span style="color:#0f9f6e;">Available</span></div>
+              <div><small>Languages</small><span>English, Hindi</span></div>
+              <div><small>GitHub</small><span>AyushAhuja2707</span></div>
+            </div>
+            <div class="badges">
+              <span>Java 17</span><span>Spring Boot</span><span>Microservices</span><span>SQL</span><span>Production Support</span>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="pc rv d1">
-        <div class="pi">⚡</div>
-        <div class="pt">10+ Full-Stack Projects</div>
-        <div class="pd">A portfolio of full-stack web projects spanning modern frontend and backend technologies, built to master new domains.</div>
-        <ul class="plist">
-          <li>Frontend projects using React.js with responsive design</li>
-          <li>Backend services with Spring Boot and RESTful architecture</li>
-          <li>Database-backed applications with SQL and ORM layers</li>
-          <li>Exploration of Django and Machine Learning pipelines</li>
-          <li>All projects available on GitHub: AyushAhuja2707</li>
-        </ul>
-        <div class="trow"><span class="ttag">React</span><span class="ttag">Spring Boot</span><span class="ttag">Django</span><span class="ttag">Python</span><span class="ttag">SQL</span></div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="sl rv">04 — Skills</div>
-    <h2 class="st rv">Technical<br>Stack</h2>
-    <p class="ss rv">Battle-tested technologies from 2 years of production banking systems.</p>
-    <div class="skl">
-      <div class="skc rv">
-        <div class="skh"><span class="ski">☕</span><span class="skt">Backend</span></div>
-        <div class="skbs">
-          <div class="skr"><div class="skm"><span>Java 17</span><span>92%</span></div><div class="sktr"><div class="skf" style="width:92%"></div></div></div>
-          <div class="skr"><div class="skm"><span>Spring Boot</span><span>88%</span></div><div class="sktr"><div class="skf" style="width:88%"></div></div></div>
-          <div class="skr"><div class="skm"><span>Microservices</span><span>82%</span></div><div class="sktr"><div class="skf" style="width:82%"></div></div></div>
-          <div class="skr"><div class="skm"><span>Hibernate / JPA</span><span>84%</span></div><div class="sktr"><div class="skf" style="width:84%"></div></div></div>
-          <div class="skr"><div class="skm"><span>Python</span><span>74%</span></div><div class="sktr"><div class="skf" style="width:74%"></div></div></div>
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">Experience</div>
+          <h2>Enterprise backend work with measurable impact</h2>
         </div>
+        <article class="card item">
+          <div class="top">
+            <div>
+              <div class="title">Oracle Financial Services</div>
+              <div class="sub">Software Developer</div>
+            </div>
+            <div class="date">June 2023 - Present | Mumbai, India</div>
+          </div>
+          <ul class="clean">
+            <li>Developed scalable REST APIs for HDFC Netbanking features including accounts, balances, transfers, and transaction history.</li>
+            <li>Built SafeBox hold removal and TD account opening APIs integrated with core banking workflows.</li>
+            <li>Implemented a dual-queue OTP management system that reduced authentication delays by 70 percent during peak usage.</li>
+            <li>Introduced transaction rate limiting, JWT-based CCIL integrations, and RBI-compliant statement flows.</li>
+            <li>Tuned SQL and PL/SQL queries and supported UAT and production releases with cross-functional teams.</li>
+          </ul>
+          <div class="tags" style="margin-top:18px;">
+            <span>Java 17</span><span>Spring Boot</span><span>SQL</span><span>PL/SQL</span><span>REST APIs</span><span>JWT</span><span>Docker</span><span>Linux</span>
+          </div>
+        </article>
       </div>
-      <div class="skc rv d1">
-        <div class="skh"><span class="ski">🗄️</span><span class="skt">Database</span></div>
-        <div class="skbs">
-          <div class="skr"><div class="skm"><span>SQL</span><span>90%</span></div><div class="sktr"><div class="skf" style="width:90%"></div></div></div>
-          <div class="skr"><div class="skm"><span>PL/SQL</span><span>85%</span></div><div class="sktr"><div class="skf" style="width:85%"></div></div></div>
-          <div class="skr"><div class="skm"><span>Query Optimization</span><span>82%</span></div><div class="sktr"><div class="skf" style="width:82%"></div></div></div>
-          <div class="skr"><div class="skm"><span>JDBC</span><span>80%</span></div><div class="sktr"><div class="skf" style="width:80%"></div></div></div>
-        </div>
-      </div>
-      <div class="skc rv d1">
-        <div class="skh"><span class="ski">⚛️</span><span class="skt">Frontend</span></div>
-        <div class="skbs">
-          <div class="skr"><div class="skm"><span>React.js</span><span>78%</span></div><div class="sktr"><div class="skf" style="width:78%"></div></div></div>
-          <div class="skr"><div class="skm"><span>HTML / CSS</span><span>85%</span></div><div class="sktr"><div class="skf" style="width:85%"></div></div></div>
-          <div class="skr"><div class="skm"><span>JavaScript</span><span>76%</span></div><div class="sktr"><div class="skf" style="width:76%"></div></div></div>
-          <div class="skr"><div class="skm"><span>XSL / XSL-FO</span><span>80%</span></div><div class="sktr"><div class="skf" style="width:80%"></div></div></div>
-        </div>
-      </div>
-      <div class="skc rv d2">
-        <div class="skh"><span class="ski">☁️</span><span class="skt">Cloud & DevOps</span></div>
-        <div class="skbs">
-          <div class="skr"><div class="skm"><span>AWS</span><span>70%</span></div><div class="sktr"><div class="skf" style="width:70%"></div></div></div>
-          <div class="skr"><div class="skm"><span>Docker</span><span>75%</span></div><div class="sktr"><div class="skf" style="width:75%"></div></div></div>
-          <div class="skr"><div class="skm"><span>Kubernetes</span><span>65%</span></div><div class="sktr"><div class="skf" style="width:65%"></div></div></div>
-          <div class="skr"><div class="skm"><span>Kafka</span><span>68%</span></div><div class="sktr"><div class="skf" style="width:68%"></div></div></div>
-          <div class="skr"><div class="skm"><span>Linux / Shell</span><span>78%</span></div><div class="sktr"><div class="skf" style="width:78%"></div></div></div>
-        </div>
-      </div>
-    </div>
+    </section>
 
-    <h3 style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--white);margin:56px 0 24px;letter-spacing:-.5px;" class="rv">Certifications</h3>
-    <div class="certg">
-      <div class="certc rv"><div class="certi">🏆</div><div><div class="certn">Oracle Certified Professional: Java SE 17 Developer</div><div class="certo">Oracle</div></div></div>
-      <div class="certc rv d1"><div class="certi">🥇</div><div><div class="certn">Oracle Certified Java Programmer (OCA, Java SE 8)</div><div class="certo">Oracle</div></div></div>
-      <div class="certc rv d1"><div class="certi">📊</div><div><div class="certn">SQL Certification</div><div class="certo">HackerRank · b9dc862ca5dc</div></div></div>
-      <div class="certc rv d2"><div class="certi">⚙️</div><div><div class="certn">Java Backend Certification</div><div class="certo">GeeksforGeeks · 204276ff1e0f</div></div></div>
-      <div class="certc rv d2"><div class="certi">🐍</div><div><div class="certn">Python Certification</div><div class="certo">HackerRank · 23cf60d69c64</div></div></div>
-      <div class="certc rv d3"><div class="certi">🧠</div><div><div class="certn">Machine Learning · Django</div><div class="certo">Kamal Classes</div></div></div>
-    </div>
-  </section>
+    <section class="alt" id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">Projects</div>
+          <h2>Practical builds beyond the day job</h2>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <div class="label" style="font-size:.68rem;">Project 01</div>
+            <div class="title" style="margin-top:10px;">Netbanking Application</div>
+            <p class="card-copy" style="margin-top:12px;">A full-stack banking simulation with secure account flows, transfer support, beneficiary management, and transaction history.</p>
+            <ul class="clean" style="margin-top:16px;">
+              <li>Authentication and authorization using Spring Security and JWT.</li>
+              <li>REST APIs for account summary, transfers, and transaction records.</li>
+              <li>JPA and Hibernate based persistence with optimized queries.</li>
+              <li>Layered controller, service, and repository architecture.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="label" style="font-size:.68rem;">Project 02</div>
+            <div class="title" style="margin-top:10px;">Portfolio of 10+ Full-Stack Projects</div>
+            <p class="card-copy" style="margin-top:12px;">A collection of learning-focused builds across frontend, backend, databases, and applied problem solving.</p>
+            <ul class="clean" style="margin-top:16px;">
+              <li>Responsive frontend projects using React.</li>
+              <li>Backend services built with Spring Boot.</li>
+              <li>Database-backed applications with SQL and ORM patterns.</li>
+              <li>Additional exploration in Django and machine learning.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <!-- ACHIEVEMENTS -->
-  <section class="alt" id="achievements">
-    <div class="sl rv">05 — Achievements</div>
-    <h2 class="st rv">By The<br>Numbers</h2>
-    <div class="achg" style="margin-bottom:56px;">
-      <div class="achi rv"><div class="achn">2×</div><div class="acht"><strong>Oracle Certified</strong>Java SE 17 Professional + OCA Java SE 8 — the gold standard in enterprise Java.</div></div>
-      <div class="achi rv d1"><div class="achn">300+</div><div class="acht"><strong>DSA Problems Solved</strong>LeetCode, GeeksforGeeks, and competitive platforms — strong algorithmic foundation.</div></div>
-      <div class="achi rv d1"><div class="achn">70%</div><div class="acht"><strong>OTP Latency Reduced</strong>Dual-queue system at Oracle cut authentication delays by 70% under peak loads.</div></div>
-      <div class="achi rv d2"><div class="achn">10+</div><div class="acht"><strong>Full-Stack Projects</strong>End-to-end web development spanning modern frontend and backend technologies.</div></div>
-    </div>
-    <h3 style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--white);margin:0 0 24px;letter-spacing:-.5px;" class="rv">Competitive Programming</h3>
-    <div class="codrow">
-      <div class="codc rv"><div class="codi">🟡</div><div><div class="codp">LeetCode</div><div class="codh">ayush2707</div></div></div>
-      <div class="codc rv d1"><div class="codi">🟢</div><div><div class="codp">GeeksforGeeks</div><div class="codh">micchael20</div></div></div>
-      <div class="codc rv d2"><div class="codi">⬛</div><div><div class="codp">GitHub</div><div class="codh">AyushAhuja2707</div></div></div>
-    </div>
-  </section>
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">Skills</div>
+          <h2>Focused backend depth with broad delivery support</h2>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <div class="title">Backend</div>
+            <div class="skill" style="margin-top:18px;">
+              <div class="row"><div><span>Java 17</span><span>92%</span></div><div class="track"><div class="fill" style="width:92%;"></div></div></div>
+              <div class="row"><div><span>Spring Boot</span><span>88%</span></div><div class="track"><div class="fill" style="width:88%;"></div></div></div>
+              <div class="row"><div><span>Microservices</span><span>82%</span></div><div class="track"><div class="fill" style="width:82%;"></div></div></div>
+              <div class="row"><div><span>Hibernate / JPA</span><span>84%</span></div><div class="track"><div class="fill" style="width:84%;"></div></div></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="title">Data and DevOps</div>
+            <div class="skill" style="margin-top:18px;">
+              <div class="row"><div><span>SQL</span><span>90%</span></div><div class="track"><div class="fill" style="width:90%;"></div></div></div>
+              <div class="row"><div><span>PL/SQL</span><span>85%</span></div><div class="track"><div class="fill" style="width:85%;"></div></div></div>
+              <div class="row"><div><span>Docker</span><span>75%</span></div><div class="track"><div class="fill" style="width:75%;"></div></div></div>
+              <div class="row"><div><span>AWS</span><span>70%</span></div><div class="track"><div class="fill" style="width:70%;"></div></div></div>
+            </div>
+          </article>
+        </div>
+        <div class="grid-2" style="margin-top:18px;">
+          <article class="card">
+            <div class="title">Certifications</div>
+            <ul class="clean" style="margin-top:16px;">
+              <li>Oracle Certified Professional: Java SE 17 Developer</li>
+              <li>Oracle Certified Java Programmer, Java SE 8</li>
+              <li>SQL Certification, HackerRank</li>
+              <li>Java Backend Certification, GeeksforGeeks</li>
+              <li>Python Certification, HackerRank</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="title">Competitive Programming</div>
+            <ul class="clean" style="margin-top:16px;">
+              <li>LeetCode: ayush2707</li>
+              <li>GeeksforGeeks: micchael20</li>
+              <li>GitHub: AyushAhuja2707</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="sl rv">06 — Education</div>
-    <h2 class="st rv">Academic<br>Background</h2>
-    <div class="edus">
-      <div class="edur rv">
-        <div class="edui">🎓</div>
-        <div>
-          <div class="edud">Master of Science in Computer Science</div>
-          <div class="edus2">Woolf University</div>
-          <div class="edum">2026 – Present · Pursuing</div>
+    <section class="alt" id="education">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">Education</div>
+          <h2>Academic background</h2>
         </div>
-        <div class="edug"><div class="edugn" style="color:var(--accent3)">MS</div><div class="edugl">In Progress</div></div>
-      </div>
-      <div class="edur rv d1">
-        <div class="edui">🏫</div>
-        <div>
-          <div class="edud">Bachelor of Engineering — Computer Engineering</div>
-          <div class="edus2">Thakur College of Engineering & Technology, Mumbai University</div>
-          <div class="edum">2019 – 2023</div>
+        <div class="grid-2">
+          <article class="card"><div class="top"><div><div class="title">MS in Computer Science</div><div class="date">Woolf University | 2026 - Present</div></div><div class="number">MS</div></div></article>
+          <article class="card"><div class="top"><div><div class="title">BE in Computer Engineering</div><div class="date">TCET, Mumbai University | 2019 - 2023</div></div><div class="number">9.78</div></div></article>
+          <article class="card"><div class="top"><div><div class="title">Higher Secondary Certificate</div><div class="date">Ryan International School | 2018 - 2019</div></div><div class="number">85%</div></div></article>
+          <article class="card"><div class="top"><div><div class="title">Secondary School Certificate</div><div class="date">Ryan International School | 2016 - 2017</div></div><div class="number">10</div></div></article>
         </div>
-        <div class="edug"><div class="edugn">9.78</div><div class="edugl">CGPA / 10</div></div>
       </div>
-      <div class="edur rv d2">
-        <div class="edui">📚</div>
-        <div>
-          <div class="edud">Higher Secondary Certificate (CBSE)</div>
-          <div class="edus2">Ryan International School</div>
-          <div class="edum">2018 – 2019</div>
-        </div>
-        <div class="edug"><div class="edugn">85%</div><div class="edugl">Score</div></div>
-      </div>
-      <div class="edur rv d3">
-        <div class="edui">🏅</div>
-        <div>
-          <div class="edud">Secondary School Certificate (CBSE)</div>
-          <div class="edus2">Ryan International School</div>
-          <div class="edum">2016 – 2017</div>
-        </div>
-        <div class="edug"><div class="edugn">10</div><div class="edugl">CGPA / 10</div></div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section class="alt" id="contact">
-    <div class="sl rv">07 — Contact</div>
-    <h2 class="st rv">Let's Build<br>Together</h2>
-    <p class="ss rv">Open to freelance projects, consulting, and exciting full-time opportunities.</p>
-    <div class="cw">
-    <!--  <div class="citems rv">-->
-        <div class="ci"><div class="ciic">📍</div><div><div class="cilbl">Location</div><div class="cival">Mumbai, India</div></div></div>
-        <div class="ci"><div class="ciic">✉️</div><div><div class="cilbl">Email</div><div class="cival"><a href="mailto:ayushahuja200@gmail.com">ayushahuja200@gmail.com</a></div></div></div>
-        <div class="ci"><div class="ciic">📱</div><div><div class="cilbl">Phone</div><div class="cival"><a href="tel:+919867968972">+91 9867968972</a></div></div></div>
-        <div class="ci"><div class="ciic">💼</div><div><div class="cilbl">Current Role</div><div class="cival">Software Developer @ Oracle Financial Services</div></div></div>
-        <div class="ci"><div class="ciic">🐙</div><div><div class="cilbl">GitHub</div><div class="cival"><a href="https://github.com/AyushAhuja2707" target="_blank">AyushAhuja2707</a></div></div></div>
-        <div class="ci"><div class="ciic">🟡</div><div><div class="cilbl">LeetCode</div><div class="cival"><a href="https://leetcode.com/ayush2707" target="_blank">ayush2707</a></div></div></div>
-      <!--</div>-->
-     <!--<div class="cf2 rv d1">
-        <div><label>Your Name</label><input type="text" placeholder="Jane Smith" /></div>
-        <div><label>Email Address</label><input type="email" placeholder="jane@example.com" /></div>
-        <div><label>Message</label><textarea placeholder="Tell me about your project or opportunity…"></textarea></div>
-        <button class="cfbtn">Send Message →</button>
-      </div>-->
-    </div>
-  </section>
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">Contact</div>
+          <h2>Let's build something solid</h2>
+          <p class="section-copy">Open to backend engineering roles, freelance projects, and interesting collaborations.</p>
+        </div>
+        <div class="contacts">
+          <article class="card">
+            <div class="title">Reach out</div>
+            <ul class="contact-list" style="margin-top:16px;">
+              <li>Email: <a href="mailto:ayushahuja200@gmail.com">ayushahuja200@gmail.com</a></li>
+              <li>Phone: <a href="tel:+919867968972">+91 9867968972</a></li>
+              <li>Location: Mumbai, India</li>
+              <li>Current role: Software Developer at Oracle Financial Services</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="title">Profiles</div>
+            <ul class="contact-list" style="margin-top:16px;">
+              <li>GitHub: <a href="https://github.com/AyushAhuja2707" target="_blank" rel="noreferrer">AyushAhuja2707</a></li>
+              <li>LeetCode: <a href="https://leetcode.com/ayush2707" target="_blank" rel="noreferrer">ayush2707</a></li>
+              <li>Resume: available for download on desktop only</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <div class="flogo">Ayush<em>.</em></div>
-    <div class="fmid">© 2026 Ayush Ahuja · Built with precision in Mumbai</div>
-    <div class="socrow">
-      <a href="https://github.com/AyushAhuja2707" class="soc" target="_blank">🐙</a>
-      <a href="https://leetcode.com/ayush2707" class="soc" target="_blank">🟡</a>
-      <a href="mailto:ayushahuja200@gmail.com" class="soc">✉️</a>
+    <div class="wrap foot">
+      <div>&copy; 2026 Ayush Ahuja</div>
+      <div class="foot-links">
+        <a href="https://github.com/AyushAhuja2707" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://leetcode.com/ayush2707" target="_blank" rel="noreferrer">LeetCode</a>
+        <a href="mailto:ayushahuja200@gmail.com">Email</a>
+      </div>
     </div>
   </footer>
-
-  <script>
-    // Cursor
-    const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
-    let mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-    (function loop(){cur.style.left=mx+'px';cur.style.top=my+'px';rx+=(mx-rx)*.11;ry+=(my-ry)*.11;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
-    document.querySelectorAll('a,button,.pc,.skc,.achi,.certc,.codc,.edur').forEach(el=>{
-      el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
-      el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
-    });
-
-    // Nav shrink
-    const nav=document.getElementById('nav');
-    window.addEventListener('scroll',()=>nav.classList.toggle('sh',scrollY>60));
-
-    // Reveal
-    const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');}),{threshold:.1});
-    document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
-
-    // Skill bars
-    const so=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.querySelectorAll('.skf').forEach(b=>b.classList.add('on'));}),{threshold:.3});
-    document.querySelectorAll('.skc').forEach(el=>so.observe(el));
-  </script>
 </body>
 </html>

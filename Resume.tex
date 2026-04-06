@@ -1,0 +1,259 @@
+%-------------------------
+% Resume in LaTeX
+% Author: Ayush Ahuja
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Ayush Ahuja} \\ \vspace{4pt}
+    \vspace{2mm}
+    \small
+    \faGithub\ \href{https://github.com/AyushAhuja2707}{\underline{AyushAhuja}} \quad
+    \faLinkedin\ \href{https://www.linkedin.com/in/ayush-ahuja-790b75187/}{\underline{Ayush}} \quad
+    \faGlobe\ \href{https://ayushahuja2707.github.io/Resume_Ayush/ }{\underline{ayushahuja2707}} \quad
+    \faEnvelope\ \href{mailto:ayushahuja200@gmail.com}{\underline{ayushahuja200@gmail.com}} \quad
+    \faPhone\ +91 9867968972
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Summary}
+\small{
+Java Backend Developer with 2 years of experience in enterprise-grade banking applications at Oracle Financial Services. Skilled in Java 17, Spring Boot, Microservices, and RESTful API development (HDFC Netbanking, Flexcube, OBP). Proven expertise in performance optimization (70\% faster OTP handling), JWT-based authentication, and secure transaction processing. Strong background in scalable system design, regulatory compliance (RBI KFS), and cloud-native solutions.
+}
+
+%-----------SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Backend:} Java 17, Spring Boot, Hibernate, JDBC, SQL, PL/SQL, Microservices \\
+     \vspace{1mm}
+     \textbf{Frontend:} React.js, HTML, CSS \\
+     \vspace{1mm}
+     \textbf{Cloud \& Tools:} AWS, Kafka, Git, Linux, Shell Scripting, Docker, Kubernetes \\
+     \vspace{1mm}
+     \textbf{Other:} Data Structures \& Algorithms, RESTful APIs, XSL, Banking Domain Knowledge, Performance Tuning, Security Compliance
+    }}
+ \end{itemize}
+
+%-----------EXPERIENCE-----------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Software Developer}{Jun 2023 -- Present}
+      {Oracle Financial Services}{Mumbai, India}
+     \resumeItemListStart
+
+\resumeItem{Developed and deployed scalable REST APIs for HDFC Netbanking, Flexcube, and OBP modules, covering account management, transaction history, fund transfers, and balance inquiry.}
+
+\resumeItem{Designed and implemented multiple high-performance transactional APIs ensuring secure and reliable processing of banking operations.}
+
+\resumeItem{Developed SafeBox Hold Removal API to securely release account holds with proper validations, reducing manual intervention and improving operational efficiency.}
+
+\resumeItem{Built TD (Term Deposit) Account Opening APIs enabling seamless account creation workflows integrated with core banking systems.}
+
+\resumeItem{Optimized authentication workflows by implementing a dual-queue OTP management system, reducing delays by 70\% and enhancing system scalability under peak loads.}
+
+\resumeItem{Implemented a transaction rate limiter for TCS module in Netbanking, mitigating fraud risks from high-frequency requests and ensuring secure, compliant, and fair usage.}
+
+\resumeItem{Integrated CCIL services using JWT-based authentication, reducing redundant API calls and improving system throughput. Designed a 24-hour JVM token strategy to optimize resource utilization while maintaining security and compliance.}
+
+\resumeItem{Designed token caching mechanism with expiry handling and auto-refresh logic, improving performance by minimizing repeated authentication calls.}
+
+\resumeItem{Developed SUS transaction and FD inquiry APIs by constructing dynamic JSON requests and integrating with outbound REST services.}
+
+\resumeItem{Tuned SQL/PLSQL queries and backend Java processes, reducing API response times and improving scalability for high-volume transactions.}
+
+\resumeItem{Assisted clients with production monitoring, RCA reporting, and compliance-related queries, including support for RBI-mandated audits.}
+
+\resumeItem{Collaborated with cross-functional teams (frontend, database, infrastructure) to deliver defect-free UAT and smooth production deployments.}
+
+\resumeItemListEnd
+      \vspace{4pt}
+      \textit{\small Tech Stack: Java, Spring Boot, SQL, PL/SQL, XSL, REST APIs, Linux, Git, Docker, Banking Applications}
+
+  \resumeSubHeadingListEnd
+
+  \section{Personal Projects}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{Netbanking Application} $|$ \emph{Java, Spring Boot, Spring Security, JWT, JPA/Hibernate}}{}
+      \resumeItemListStart
+        \resumeItem{Designed and developed REST APIs for account summary, fund transfer (simulation), and transaction history.}
+        \resumeItem{Implemented authentication and authorization using Spring Security and JWT.}
+        \resumeItem{Built beneficiary management module with add, delete, and verify functionality.}
+        \resumeItem{Integrated database using JPA/Hibernate with optimized queries.}
+        \resumeItem{Implemented transaction logging and exception handling for secure processing.}
+        \resumeItem{Followed layered architecture (Controller $\rightarrow$ Service $\rightarrow$ Repository).}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+
+     \resumeSubheading
+      {Woolf University }{2026 -- Present}
+      {Master of Science (MS) in Computer Science}{Pursuing}
+      \vspace{2mm}
+
+    \resumeSubheading
+      {Thakur College of Engineering \& Technology, Mumbai University}{2019 -- 2023}
+      {Bachelor of Engineering (Computer Engineering)}{CGPA: 9.78/10}
+      \vspace{2mm}
+
+    \resumeSubheading
+      {Ryan International School, CBSE}{2018 -- 2019}
+      {Higher Secondary Certificate}{85\%}
+      \vspace{2mm}
+
+    \resumeSubheading
+      {Ryan International School, CBSE}{2016 -- 2017}
+      {Secondary School Certificate}{CGPA: 10/10}
+      \vspace{2mm}
+
+  \resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+  \resumeSubHeadingListStart
+    \resumeSubItem{Oracle Certified Professional: Java SE 17 Developer}
+    \resumeSubItem{Oracle Certified Java Programmer (OCA, Java SE 8)}
+    \resumeSubItem{SQL Certification -- HackerRank (Credential ID: b9dc862ca5dc)}
+    \resumeSubItem{Java Backend Certification -- GeeksforGeeks (Credential ID: 204276ff1e0f990669a0886ef434b8ec)}
+    \resumeSubItem{Python Certification -- HackerRank (Credential ID: 23cf60d69c64)}
+    \resumeSubItem{Django -- Kamal Classes (Credential ID: OLDJ627)}
+    \resumeSubItem{Machine Learning -- Kamal Classes (Credential ID: OLMLFL1132)}
+  \resumeSubHeadingListEnd
+
+%-----------ACHIEVEMENTS-----------
+\section{Achievements}
+  \resumeSubHeadingListStart
+    \resumeSubItem{Achieved Oracle Certified Professional: Java SE 17 Developer \& Oracle Certified Java Programmer (OCA, Java SE 8).}
+    \resumeSubItem{Solved 300+ algorithmic and data structure problems on LeetCode, GFG, and other platforms, showcasing strong problem-solving and analytical skills.}
+    \resumeSubItem{Delivered RBI-compliant solutions and assisted clients with regulatory queries, improving audit readiness and compliance.}
+    \resumeSubItem{Completed 10+ full-stack projects in Web Development (Frontend + Backend) using modern technologies.}
+  \resumeSubHeadingListEnd
+
+%-----------COMPETITIVE PROGRAMMING-----------
+\section{Competitive Programming Profiles}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{LeetCode:} \href{https://leetcode.com/ayush2707}{\underline{ayush2707}} \\
+     \textbf{GeeksforGeeks:} \href{https://auth.geeksforgeeks.org/user/micchael20}{\underline{micchael20}} \\
+     \textbf{GitHub:} \href{https://github.com/AyushAhuja2707}{\underline{AyushAhuja2707}}
+    }}
+ \end{itemize}
+
+%-----------LANGUAGES-----------
+\section{Languages}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{English} -- Native / Bilingual Proficiency \\
+     \textbf{Hindi} -- Native / Bilingual Proficiency
+    }}
+ \end{itemize}
+
+%-----------INTERESTS-----------
+\section{Interests}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     Problem-Solving, Analytical Thinking, Creativity, Playing Table Tennis
+    }}
+ \end{itemize}
+
+\vfill
+\begin{center}
+    \small\textit{Last updated: April 4, 2026}
+\end{center}
+%-------------------------------------------
+\end{document}
