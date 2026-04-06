@@ -5,37 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ayush Ahuja | Java Backend Engineer</title>
   <meta name="description" content="Ayush Ahuja is a Java Backend Engineer at Oracle Financial Services focused on Spring Boot, microservices, and scalable banking systems.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root{--bg:#f5f7fb;--card:#fff;--soft:#edf2fa;--text:#15243b;--muted:#5f6e86;--accent:#1d4ed8;--line:rgba(21,36,59,.1);--shadow:0 20px 50px rgba(21,36,59,.08)}
-    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{font-family:"DM Mono",monospace;background:linear-gradient(180deg,#f8fbff,#f5f7fb);color:var(--text);line-height:1.7}
+    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#f8fbff,#f5f7fb);color:var(--text);line-height:1.7}
     a{color:inherit} img{max-width:100%;display:block} .wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
     nav{position:sticky;top:0;z-index:10;background:rgba(248,251,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-    .nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0}.brand{font:800 1.2rem "Syne",sans-serif;text-decoration:none}.brand span{color:var(--accent)}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0}.brand{font:700 1.2rem Arial,Helvetica,sans-serif;text-decoration:none}.brand span{color:var(--accent)}
     .links{display:flex;gap:22px;list-style:none;font-size:.8rem;color:var(--muted)} .links a{text-decoration:none}
-    .resume-btn,.cta,.ghost{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;text-decoration:none;font-family:"Syne",sans-serif;font-size:.82rem;padding:12px 20px;transition:.2s}
+    .resume-btn,.cta,.ghost{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:.82rem;padding:12px 20px;transition:.2s}
     .resume-btn,.cta{background:var(--accent);border:1px solid var(--accent);color:#fff}.ghost{background:#fff;border:1px solid var(--line);color:var(--text)} .resume-btn:hover,.cta:hover{filter:brightness(.95)} .ghost:hover{border-color:var(--accent);color:var(--accent)}
     .mobile-note{display:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;font-size:.72rem;color:var(--muted)}
     section{padding:76px 0}.hero{padding:54px 0 42px}.hero-box,.card{background:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.65);box-shadow:var(--shadow);border-radius:28px}
     .hero-box{padding:42px;display:grid;grid-template-columns:1.25fr .95fr;gap:28px;align-items:center}.eyebrow,.label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px}
-    .eyebrow:before,.label:before{content:"";width:30px;height:1px;background:currentColor} h1,h2,.title{font-family:"Syne",sans-serif;letter-spacing:-.04em}
+    .eyebrow:before,.label:before{content:"";width:30px;height:1px;background:currentColor} h1,h2,.title{font-family:Arial,Helvetica,sans-serif;letter-spacing:-.02em}
     h1{font-size:clamp(3rem,7vw,5.6rem);line-height:.95;margin-top:18px} h1 span{color:var(--accent)} .role{margin-top:16px;color:var(--muted);font-size:1.08rem}
     .copy,.section-copy,.card-copy{color:var(--muted);font-size:.9rem}.copy{margin-top:18px;max-width:58ch}.hero-actions{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
-    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.stat{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}.stat strong{display:block;font:800 2rem "Syne",sans-serif}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.stat{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}.stat strong{display:block;font:700 2rem Arial,Helvetica,sans-serif}
     .stat span{display:block;margin-top:8px;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.08em}
     .alt{background:rgba(255,255,255,.45);border-top:1px solid rgba(255,255,255,.65);border-bottom:1px solid rgba(255,255,255,.65)}
     .section-head{margin-bottom:28px} h2{font-size:clamp(2rem,4vw,3.4rem);line-height:1;margin-top:14px}.section-copy{margin-top:12px;max-width:68ch}
     .about,.grid-2,.achievements,.contacts{display:grid;gap:18px}.about{grid-template-columns:320px 1fr}.grid-2,.contacts{grid-template-columns:repeat(2,1fr)}.achievements{grid-template-columns:repeat(4,1fr)}
     .card{padding:26px}.photo{overflow:hidden;padding:0}.photo img{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--soft)} .meta{padding:18px 20px;border-top:1px solid var(--line)}
-    .meta strong{display:block;font:700 1rem "Syne",sans-serif}.meta span{font-size:.82rem;color:var(--muted)} .info{margin-top:22px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .meta strong{display:block;font:700 1rem Arial,Helvetica,sans-serif}.meta span{font-size:.82rem;color:var(--muted)} .info{margin-top:22px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
     .info div{background:var(--soft);border:1px solid rgba(21,36,59,.06);border-radius:14px;padding:14px} .info small{display:block;color:var(--accent);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
     .badges,.tags{display:flex;gap:10px;flex-wrap:wrap}.badges{margin-top:18px}.badges span,.tags span{border-radius:999px;padding:7px 11px;font-size:.72rem}.badges span{background:#e8f0ff;color:var(--accent);border:1px solid rgba(29,78,216,.12)} .tags span{background:var(--soft);color:var(--muted);border:1px solid rgba(21,36,59,.08)}
     .item + .item{margin-top:16px}.top{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px}.title{font-size:1.14rem}.sub{color:var(--accent);font-size:.82rem}.date{font-size:.78rem;color:var(--muted)}
     ul.clean{list-style:none;display:grid;gap:10px;color:var(--muted);font-size:.86rem} ul.clean li{position:relative;padding-left:16px} ul.clean li:before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
     .skill{display:grid;gap:14px}.row{display:grid;gap:6px}.row div{display:flex;justify-content:space-between;font-size:.76rem;color:var(--muted)} .track{height:8px;background:var(--soft);border-radius:999px;overflow:hidden} .fill{height:100%;background:linear-gradient(90deg,var(--accent),#60a5fa);border-radius:999px}
-    .number{font:800 2rem "Syne",sans-serif;color:var(--accent);line-height:1}.contact-list{list-style:none;display:grid;gap:10px;color:var(--muted);font-size:.86rem}.contact-list a{text-decoration:none;color:var(--accent)}
+    .number{font:700 2rem Arial,Helvetica,sans-serif;color:var(--accent);line-height:1}.contact-list{list-style:none;display:grid;gap:10px;color:var(--muted);font-size:.86rem}.contact-list a{text-decoration:none;color:var(--accent)}
     footer{padding:28px 0 40px;color:var(--muted);font-size:.8rem}.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px}.foot-links{display:flex;gap:14px;flex-wrap:wrap}.foot-links a{text-decoration:none}
     @media (max-width:960px){.hero-box,.about,.grid-2,.achievements,.contacts{grid-template-columns:1fr}.links{display:none}.mobile-note{display:none}.info{grid-template-columns:1fr}}
     @media (max-width:640px){section{padding:64px 0}.hero{padding-top:32px}.hero-box,.card{padding:22px}.photo{padding:0}.hero-actions{flex-direction:column}.cta,.ghost{width:100%}}
@@ -260,7 +257,7 @@
             <ul class="contact-list" style="margin-top:16px;">
               <li>GitHub: <a href="https://github.com/AyushAhuja2707" target="_blank" rel="noreferrer">AyushAhuja2707</a></li>
               <li>LeetCode: <a href="https://leetcode.com/ayush2707" target="_blank" rel="noreferrer">ayush2707</a></li>
-              <li>Resume: available for download on desktop only</li>
+              <li>Resume: available for download</li>
             </ul>
           </article>
         </div>
