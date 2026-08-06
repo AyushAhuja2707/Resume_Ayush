@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: office-issue-bot
+  datasource:
+    url: ${ISSUE_BOT_DB_URL:jdbc:postgresql://localhost:5432/appdb}
+    username: ${ISSUE_BOT_DB_USERNAME:app_user}
+    password: ${ISSUE_BOT_DB_PASSWORD:change-me}
+    hikari:
+      maximum-pool-size: 5
+      read-only: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+issue-bot:
+  db:
+    mode: metadata-only
+    allowed-schemas:
+      - public
+    blocked-objects:
+      - password
+      - secret
+      - token
+    allow-procedures: false
+    enable-table-sampling: false
